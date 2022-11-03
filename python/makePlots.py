@@ -22,7 +22,7 @@ def plot(plot_dir, plot_name, inputs, info):
         x_vals, y_vals = tools.getXYVals(data)
         plt.plot(x_vals, y_vals, label=label, color=color)
     
-    legend_font_size = 12
+    legend_font_size = 10
     
     ax.legend(loc='upper right', prop={'size': legend_font_size})
     ax.set_title(title,     fontsize=20)
@@ -49,27 +49,32 @@ def makePlots():
     inputs["ATLAS_Soft_2l"]["csv"]      = "data/HEPData-ins1767649-v5-Figure_16a_Observed.csv"
     inputs["ATLAS_Soft_2l"]["label"]    = "ATLAS Soft 2l (Observed)"
     inputs["ATLAS_Soft_2l"]["color"]    = "xkcd:cherry red"
-    inputs["ATLAS_Soft_2l"]["isMvsDM"]  = True
+    inputs["ATLAS_Soft_2l"]["isDMvsM"]  = True
     inputs["ATLAS_2l"]                  = {}
     inputs["ATLAS_2l"]["csv"]           = "data/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv"
     inputs["ATLAS_2l"]["label"]         = "ATLAS 2l (Observed)"
     inputs["ATLAS_2l"]["color"]         = "xkcd:tangerine"
-    inputs["ATLAS_2l"]["isMvsDM"]       = False
+    inputs["ATLAS_2l"]["isDMvsM"]       = False
+    inputs["CMS_Compressed"]            = {}
+    inputs["CMS_Compressed"]["csv"]     = "data/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v1.csv"
+    inputs["CMS_Compressed"]["label"]   = "CMS Compressed (Expected)"
+    inputs["CMS_Compressed"]["color"]   = "xkcd:apple green"
+    inputs["CMS_Compressed"]["isDMvsM"] = True
 
     info = {}
     info["title"]   = "TSlepSlep Limits"
-    info["x_label"] = r"$m \left(\tilde{\ell}\right)$ [GeV]"
-    info["y_label"] = r"$\Delta m \left(\tilde{\ell}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["x_lim"]   = [100.0, 600.0]
-    info["y_lim"]   = [0.0,   200.0]
+    info["x_label"] = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
+    info["y_label"] = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["x_lim"]   = [100.0, 400.0]
+    info["y_lim"]   = [0.0,   175.0]
     
     # load data from csv file
     for key in inputs:
         inputs[key]["data"] = tools.getData(inputs[key]["csv"]) 
         inputs[key]["data"] = tools.getCleanData(inputs[key]["data"])
-        # convert to MvsDM data if needed
-        if not inputs[key]["isMvsDM"]:
-            inputs[key]["data"] = tools.getDMData(inputs[key]["data"])
+        # convert to DM vs M data if needed
+        if not inputs[key]["isDMvsM"]:
+            inputs[key]["data"] = tools.getDMvsMData(inputs[key]["data"])
     
     tools.makeDir(plot_dir)
     plot(plot_dir, plot_name, inputs, info)

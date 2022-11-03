@@ -57,8 +57,8 @@ def getCleanData(data):
             result.append(new_row)
     return result
 
-# Get x=M1, y=M_1-M_2 data from x=M_1, y=M_2 data
-def getDMData(data):
+# Get x=M1, y=M_1-M_2 data from x=M_1, y=M_2 data (i.e. get DM vs. M data)
+def getDMvsMData(data):
     result = []
     for row in data:
         # assume m1 > m2
