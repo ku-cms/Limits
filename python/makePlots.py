@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 import tools
+import numpy as np
 
 def plot(plot_dir, plot_name, inputs, info):
     output_name = "{0}/{1}.pdf".format(plot_dir, plot_name)
@@ -14,13 +15,26 @@ def plot(plot_dir, plot_name, inputs, info):
     y_lim   = info["y_lim"]
 
     fig, ax = plt.subplots(figsize=(6, 6))
+
+    print("Creating the plot '{0}'".format(title))
     
     for key in inputs:
-        data    = inputs[key]["data"]
-        label   = inputs[key]["label"]
-        color   = inputs[key]["color"]
+        data        = inputs[key]["data"]
+        label       = inputs[key]["label"]
+        color       = inputs[key]["color"]
+        fillLeft    = inputs[key]["fillLeft"]
         x_vals, y_vals = tools.getXYVals(data)
         plt.plot(x_vals, y_vals, label=label, color=color)
+        plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=0.5)
+        if fillLeft:
+            x_min  = x_lim[0]
+            x_max  = np.min(x_vals)
+            x_fill = [x_min, x_max]
+            plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=0.5)
+        print(" - Plotted '{0}'".format(key))
+    
+    # Enable dark mode!
+    #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=0.5)
     
     legend_font_size = 10
     
@@ -39,27 +53,29 @@ def plot(plot_dir, plot_name, inputs, info):
     plt.savefig(output_name, bbox_inches='tight')
 
 def makePlots():
-    print("Yeah baby, let's go!")
     plot_dir    = "plots"
     plot_name   = "TSlepSlep_Limits"
     
     # TSlepSlep
-    inputs = {}
-    inputs["ATLAS_Soft_2l"]             = {}
-    inputs["ATLAS_Soft_2l"]["csv"]      = "data/HEPData-ins1767649-v5-Figure_16a_Observed.csv"
-    inputs["ATLAS_Soft_2l"]["label"]    = "ATLAS Soft 2l (Observed)"
-    inputs["ATLAS_Soft_2l"]["color"]    = "xkcd:cherry red"
-    inputs["ATLAS_Soft_2l"]["isDMvsM"]  = True
-    inputs["ATLAS_2l"]                  = {}
-    inputs["ATLAS_2l"]["csv"]           = "data/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv"
-    inputs["ATLAS_2l"]["label"]         = "ATLAS 2l (Observed)"
-    inputs["ATLAS_2l"]["color"]         = "xkcd:tangerine"
-    inputs["ATLAS_2l"]["isDMvsM"]       = False
-    inputs["CMS_Compressed"]            = {}
-    inputs["CMS_Compressed"]["csv"]     = "data/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v1.csv"
-    inputs["CMS_Compressed"]["label"]   = "CMS Compressed (Expected)"
-    inputs["CMS_Compressed"]["color"]   = "xkcd:apple green"
-    inputs["CMS_Compressed"]["isDMvsM"] = True
+    inputs                                  = {}
+    inputs["ATLAS_Soft_2l"]                 = {}
+    inputs["ATLAS_Soft_2l"]["csv"]          = "data/HEPData-ins1767649-v5-Figure_16a_Observed.csv"
+    inputs["ATLAS_Soft_2l"]["label"]        = "ATLAS Soft 2l (Observed)"
+    inputs["ATLAS_Soft_2l"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2l"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2l"]["fillLeft"]     = False
+    inputs["ATLAS_2l"]                      = {}
+    inputs["ATLAS_2l"]["csv"]               = "data/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv"
+    inputs["ATLAS_2l"]["label"]             = "ATLAS 2l (Observed)"
+    inputs["ATLAS_2l"]["color"]             = "xkcd:tangerine"
+    inputs["ATLAS_2l"]["isDMvsM"]           = False
+    inputs["ATLAS_2l"]["fillLeft"]          = False
+    inputs["CMS_Compressed"]                = {}
+    inputs["CMS_Compressed"]["csv"]         = "data/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v1.csv"
+    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
+    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
+    inputs["CMS_Compressed"]["isDMvsM"]     = True
+    inputs["CMS_Compressed"]["fillLeft"]    = True
 
     info = {}
     info["title"]   = "TSlepSlep Limits"
