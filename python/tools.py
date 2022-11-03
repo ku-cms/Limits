@@ -57,3 +57,16 @@ def getCleanData(data):
             result.append(new_row)
     return result
 
+# Get x=M1, y=M_1-M_2 data from x=M_1, y=M_2 data
+def getDMData(data):
+    result = []
+    for row in data:
+        # assume m1 > m2
+        m1 = row[0]
+        m2 = row[1]
+        x  = m1
+        y  = m1 - m2
+        new_row = [x, y]
+        result.append(new_row)
+    return result
+
