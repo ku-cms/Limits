@@ -2,6 +2,7 @@
 
 import os
 import csv
+import numpy as np
 
 # creates directory if it does not exist
 def makeDir(dir_name):
@@ -68,5 +69,24 @@ def getDMvsMData(data):
         y  = m1 - m2
         new_row = [x, y]
         result.append(new_row)
+    return result
+
+# Get flat data: set y values to mean y value over a specified range
+def getFlatData(data, flatten_x_range):
+    result  = []
+    x_min   = flatten_x_range[0]
+    x_max   = flatten_x_range[1]
+    y_vals  = [row[1] for row in data if x_min < row[0] < x_max]
+    y_mean  = np.mean(y_vals)
+    #print("y_vals = {0}".format(y_vals))
+    print("In getFlatData(): y_mean = {0:.3f} over the x range {1}".format(y_mean, flatten_x_range))
+    for row in data:
+        x = row[0]
+        if x_min < x < x_max:
+            y = y_mean
+            new_row = [x, y]
+            result.append(new_row)
+        else:
+            result.append(row)
     return result
 
