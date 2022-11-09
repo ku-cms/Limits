@@ -5,6 +5,7 @@ from matplotlib.ticker import AutoMinorLocator
 import tools
 import numpy as np
 
+# Create plot
 def plot(plot_dir, plot_name, inputs, info):
     output_name = "{0}/{1}.pdf".format(plot_dir, plot_name)
     
@@ -52,7 +53,28 @@ def plot(plot_dir, plot_name, inputs, info):
     
     plt.savefig(output_name, bbox_inches='tight')
 
-def makePlots():
+# Prepare to plot
+def preparePlot(plot_dir, plot_name, inputs, info):
+    title = info["title"]
+    print("Preparing to plot '{0}'".format(title))
+    
+    # load data from csv file
+    for key in inputs:
+        inputs[key]["data"] = tools.getData(inputs[key]["csv"]) 
+        inputs[key]["data"] = tools.getCleanData(inputs[key]["data"])
+        # convert to DM vs M data if needed
+        if not inputs[key]["isDMvsM"]:
+            inputs[key]["data"] = tools.getDMvsMData(inputs[key]["data"])
+        # flatten: set y values to mean y value over a specified range
+        if inputs[key]["flatten"]:
+            inputs[key]["data"] = tools.getFlatData(inputs[key]["data"], info["flatten_x_range"])
+    
+    # plot
+    tools.makeDir(plot_dir)
+    plot(plot_dir, plot_name, inputs, info)
+
+# Create plot for TSlepSlep
+def makePlotTSlepSlep():
     data_dir    = "data/TSlepSlep"
     plot_dir    = "plots"
     plot_name   = "TSlepSlep_Limits"
@@ -85,36 +107,29 @@ def makePlots():
     info["title"]   = "TSlepSlep Limits"
     info["x_label"] = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
     info["y_label"] = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
+    
+    #info["x_lim"]   = [100.0, 400.0]
+    #info["y_lim"]   = [0.0,   175.0]
+    
     info["x_lim"]   = [110.0, 300.0]
     info["y_lim"]   = [0.0,   100.0]
     
-    #info["y_lim"]   = [0.0,   175.0]
-    
     #info["x_lim"]   = [100.0, 600.0]
     #info["y_lim"]   = [0.0,   200.0]
+    
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
 
-    flatten_x_range = [0.0, 300.0]
-    
-    # load data from csv file
-    for key in inputs:
-        inputs[key]["data"] = tools.getData(inputs[key]["csv"]) 
-        inputs[key]["data"] = tools.getCleanData(inputs[key]["data"])
-        # convert to DM vs M data if needed
-        if not inputs[key]["isDMvsM"]:
-            inputs[key]["data"] = tools.getDMvsMData(inputs[key]["data"])
-        # flatten: set y values to mean y value over a specified range
-        if inputs[key]["flatten"]:
-            inputs[key]["data"] = tools.getFlatData(inputs[key]["data"], flatten_x_range)
-    
-    tools.makeDir(plot_dir)
-    plot(plot_dir, plot_name, inputs, info)
+    # x range over which to set y values to mean y value 
+    info["flatten_x_range"] = [0.0, 300.0]
+
+    preparePlot(plot_dir, plot_name, inputs, info)
 
 def main():
-    makePlots()
+    makePlotTSlepSlep()
 
 if __name__ == "__main__":
     main()
