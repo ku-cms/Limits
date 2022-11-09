@@ -74,7 +74,7 @@ def makePlots():
     inputs["ATLAS_2l"]["fillLeft"]          = False
     inputs["ATLAS_2l"]["flatten"]           = True
     inputs["CMS_Compressed"]                = {}
-    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v1.csv".format(data_dir)
+    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v2p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
     inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
     inputs["CMS_Compressed"]["isDMvsM"]     = True
