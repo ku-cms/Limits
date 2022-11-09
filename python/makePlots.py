@@ -104,9 +104,12 @@ def makePlotTSlepSlep():
     inputs["CMS_Compressed"]["flatten"]     = False
 
     info = {}
-    info["title"]   = "TSlepSlep Limits"
-    info["x_label"] = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
-    info["y_label"] = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["title"]           = "TSlepSlep Limits"
+    info["x_label"]         = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
+    info["y_label"]         = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["x_lim"]           = [110.0, 300.0]
+    info["y_lim"]           = [0.0,   100.0]
+    info["flatten_x_range"] = [0.0, 300.0]   # x range over which to set y values to mean y value
     
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
@@ -114,22 +117,51 @@ def makePlotTSlepSlep():
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   175.0]
     
-    info["x_lim"]   = [110.0, 300.0]
-    info["y_lim"]   = [0.0,   100.0]
-    
     #info["x_lim"]   = [100.0, 600.0]
     #info["y_lim"]   = [0.0,   200.0]
     
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
 
-    # x range over which to set y values to mean y value 
-    info["flatten_x_range"] = [0.0, 300.0]
+    preparePlot(plot_dir, plot_name, inputs, info)
 
+# Create plot for TChiWZ
+def makePlotTChiWZ():
+    data_dir    = "data/TChiWZ"
+    plot_dir    = "plots"
+    plot_name   = "TChiWZ_Limits"
+    
+    # TChiWZ
+    inputs                                  = {}
+    inputs["CMS_Compressed"]                = {}
+    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
+    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
+    inputs["CMS_Compressed"]["isDMvsM"]     = True
+    inputs["CMS_Compressed"]["fillLeft"]    = False
+    inputs["CMS_Compressed"]["flatten"]     = False
+    
+    info = {}
+    info["title"]   = "TChiWZ Limits"
+    info["x_label"] = "Fix Me" 
+    info["y_label"] = "Fix Me"
+    info["x_lim"]   = [110.0, 400.0]
+    info["y_lim"]   = [3.0,   50.0]
+    
+    #info["x_lim"]   = [0.0, 600.0]
+    #info["y_lim"]   = [0.0, 50.0]
+    
+    #info["x_lim"]   = [100.0, 400.0]
+    #info["y_lim"]   = [0.0,   100.0]
+    
+    #info["x_lim"]   = [0.0, 800.0]
+    #info["y_lim"]   = [0.0, 800.0]
+    
     preparePlot(plot_dir, plot_name, inputs, info)
 
 def main():
     makePlotTSlepSlep()
+    makePlotTChiWZ()
 
 if __name__ == "__main__":
     main()
