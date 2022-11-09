@@ -85,8 +85,11 @@ def makePlots():
     info["title"]   = "TSlepSlep Limits"
     info["x_label"] = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
     info["y_label"] = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["x_lim"]   = [100.0, 400.0]
+    #info["x_lim"]   = [100.0, 400.0]
+    #info["y_lim"]   = [0.0,   100.0]
+    info["x_lim"]   = [110.0, 300.0]
     info["y_lim"]   = [0.0,   100.0]
+    
     #info["y_lim"]   = [0.0,   175.0]
     
     #info["x_lim"]   = [100.0, 600.0]
