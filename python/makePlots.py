@@ -145,7 +145,7 @@ def makePlotTChiWZ():
     info["title"]   = "TChiWZ Limits"
     info["x_label"] = "Fix Me" 
     info["y_label"] = "Fix Me"
-    info["x_lim"]   = [110.0, 400.0]
+    info["x_lim"]   = [120.0, 400.0]
     info["y_lim"]   = [3.0,   50.0]
     
     #info["x_lim"]   = [0.0, 600.0]
@@ -159,9 +159,38 @@ def makePlotTChiWZ():
     
     preparePlot(plot_dir, plot_name, inputs, info)
 
+# Create plot for T2ttC
+def makePlotT2ttC():
+    data_dir    = "data/T2ttC"
+    plot_dir    = "plots"
+    plot_name   = "T2ttC_Limits"
+    
+    # T2ttC
+    inputs                                  = {}
+    inputs["CMS_Compressed"]                = {}
+    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
+    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
+    inputs["CMS_Compressed"]["isDMvsM"]     = True
+    inputs["CMS_Compressed"]["fillLeft"]    = False
+    inputs["CMS_Compressed"]["flatten"]     = False
+    
+    info = {}
+    info["title"]   = "T2ttC Limits"
+    info["x_label"] = "Fix Me" 
+    info["y_label"] = "Fix Me"
+    info["x_lim"]   = [250.0, 1000.0]
+    info["y_lim"]   = [10.0,  80.0]
+    
+    #info["x_lim"]   = [0.0, 1000.0]
+    #info["y_lim"]   = [0.0, 100.0]
+    
+    preparePlot(plot_dir, plot_name, inputs, info)
+
 def main():
     makePlotTSlepSlep()
     makePlotTChiWZ()
+    makePlotT2ttC()
 
 if __name__ == "__main__":
     main()
