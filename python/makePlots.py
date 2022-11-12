@@ -81,20 +81,20 @@ def makePlotTSlepSlep():
     
     # TSlepSlep
     inputs                                  = {}
-    inputs["ATLAS_Soft_2l"]                 = {}
-    inputs["ATLAS_Soft_2l"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2l"]["label"]        = "ATLAS Soft 2l (Observed)"
-    inputs["ATLAS_Soft_2l"]["color"]        = "xkcd:cherry red"
-    inputs["ATLAS_Soft_2l"]["isDMvsM"]      = True
-    inputs["ATLAS_Soft_2l"]["fillLeft"]     = False
-    inputs["ATLAS_Soft_2l"]["flatten"]      = False
-    inputs["ATLAS_2l"]                      = {}
-    inputs["ATLAS_2l"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
-    inputs["ATLAS_2l"]["label"]             = "ATLAS 2l (Observed)"
-    inputs["ATLAS_2l"]["color"]             = "xkcd:tangerine"
-    inputs["ATLAS_2l"]["isDMvsM"]           = False
-    inputs["ATLAS_2l"]["fillLeft"]          = False
-    inputs["ATLAS_2l"]["flatten"]           = True
+    inputs["ATLAS_Soft_2L"]                 = {}
+    inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
+    inputs["ATLAS_Soft_2L"]["flatten"]      = False
+    inputs["ATLAS_2L"]                      = {}
+    inputs["ATLAS_2L"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
+    inputs["ATLAS_2L"]["label"]             = "ATLAS 2L (Observed)"
+    inputs["ATLAS_2L"]["color"]             = "xkcd:tangerine"
+    inputs["ATLAS_2L"]["isDMvsM"]           = False
+    inputs["ATLAS_2L"]["fillLeft"]          = False
+    inputs["ATLAS_2L"]["flatten"]           = True
     inputs["CMS_Compressed"]                = {}
     inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
@@ -133,13 +133,13 @@ def makePlotTChiWZ():
     
     # TChiWZ
     inputs                                  = {}
-    inputs["ATLAS_Soft_2l"]                 = {}
-    inputs["ATLAS_Soft_2l"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2l"]["label"]        = "ATLAS Soft 2l (Observed)"
-    inputs["ATLAS_Soft_2l"]["color"]        = "xkcd:cherry red"
-    inputs["ATLAS_Soft_2l"]["isDMvsM"]      = True
-    inputs["ATLAS_Soft_2l"]["fillLeft"]     = False
-    inputs["ATLAS_Soft_2l"]["flatten"]      = False
+    inputs["ATLAS_Soft_2L"]                 = {}
+    inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
+    inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["CMS_Compressed"]                = {}
     inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
@@ -174,6 +174,13 @@ def makePlotT2ttC():
     
     # T2ttC
     inputs                                  = {}
+    inputs["ATLAS_0L"]                      = {}
+    inputs["ATLAS_0L"]["csv"]               = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
+    inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
+    inputs["ATLAS_0L"]["color"]             = "xkcd:cherry red"
+    inputs["ATLAS_0L"]["isDMvsM"]           = False
+    inputs["ATLAS_0L"]["fillLeft"]          = False
+    inputs["ATLAS_0L"]["flatten"]           = False
     inputs["CMS_Compressed"]                = {}
     inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
@@ -186,11 +193,14 @@ def makePlotT2ttC():
     info["title"]   = "T2ttC Limits"
     info["x_label"] = "Fix Me" 
     info["y_label"] = "Fix Me"
-    info["x_lim"]   = [250.0, 1000.0]
+    info["x_lim"]   = [400.0, 1000.0]
     info["y_lim"]   = [10.0,  80.0]
     
+    #info["x_lim"]   = [300.0, 800.0]
+    #info["y_lim"]   = [0.0,   250.0]
+    
     #info["x_lim"]   = [0.0, 1000.0]
-    #info["y_lim"]   = [0.0, 100.0]
+    #info["y_lim"]   = [0.0, 300.0]
     
     preparePlot(plot_dir, plot_name, inputs, info)
 
