@@ -133,6 +133,13 @@ def makePlotTChiWZ():
     
     # TChiWZ
     inputs                                  = {}
+    inputs["ATLAS_Soft_2l"]                 = {}
+    inputs["ATLAS_Soft_2l"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
+    inputs["ATLAS_Soft_2l"]["label"]        = "ATLAS Soft 2l (Observed)"
+    inputs["ATLAS_Soft_2l"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2l"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2l"]["fillLeft"]     = False
+    inputs["ATLAS_Soft_2l"]["flatten"]      = False
     inputs["CMS_Compressed"]                = {}
     inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
