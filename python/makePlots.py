@@ -150,8 +150,8 @@ def makePlotTChiWZ():
     
     info = {}
     info["title"]   = "TChiWZ Limits"
-    info["x_label"] = "Fix Me" 
-    info["y_label"] = "Fix Me"
+    info["x_label"] = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
+    info["y_label"] = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["x_lim"]   = [120.0, 400.0]
     info["y_lim"]   = [3.0,   50.0]
     
@@ -191,8 +191,8 @@ def makePlotT2ttC():
     
     info = {}
     info["title"]   = "T2ttC Limits"
-    info["x_label"] = "Fix Me" 
-    info["y_label"] = "Fix Me"
+    info["x_label"] = r"$m \left(\tilde{t}_{1}\right)$ [GeV]" 
+    info["y_label"] = r"$\Delta m \left(\tilde{t}_{1}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["x_lim"]   = [400.0, 1000.0]
     info["y_lim"]   = [10.0,  80.0]
     
