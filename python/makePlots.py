@@ -215,11 +215,11 @@ def makePlotT2ttC():
     
     info = {}
     info["title"]               = "T2ttC Limits"
-    info["proc_label"]          = "Process label."
-    info["x_label"]             = r"$m \left(\tilde{t}_{1}\right)$ [GeV]" 
-    info["y_label"]             = r"$\Delta m \left(\tilde{t}_{1}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["proc_label_x_pos"]    = 0.50  # process label x position as fraction in range [0.0, 1.0]
-    info["proc_label_y_pos"]    = 0.50  # process label y position as fraction in range [0.0, 1.0]
+    info["proc_label"]          = r"$p p \to \tilde{t} \bar{\tilde{t}}$; $\tilde{t} \to b f \bar{f}' \tilde{\chi}_{1}^{0}$"
+    info["x_label"]             = r"$m \left(\tilde{t}\right)$ [GeV]" 
+    info["y_label"]             = r"$\Delta m \left(\tilde{t}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["proc_label_x_pos"]    = 0.70  # process label x position as fraction in range [0.0, 1.0]
+    info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [400.0, 1000.0]
     info["y_lim"]               = [10.0,  80.0]
     #info["x_lim"]   = [200.0, 800.0]
