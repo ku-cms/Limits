@@ -9,11 +9,12 @@ import numpy as np
 def plot(plot_dir, plot_name, inputs, info):
     output_name = "{0}/{1}.pdf".format(plot_dir, plot_name)
     
-    title   = info["title"]
-    x_label = info["x_label"]
-    y_label = info["y_label"]
-    x_lim   = info["x_lim"]
-    y_lim   = info["y_lim"]
+    title       = info["title"]
+    proc_label  = info["proc_label"]
+    x_label     = info["x_label"]
+    y_label     = info["y_label"]
+    x_lim       = info["x_lim"]
+    y_lim       = info["y_lim"]
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -37,10 +38,16 @@ def plot(plot_dir, plot_name, inputs, info):
     # Enable dark mode!
     #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=0.5)
     
+    # get coordinates for labels
+    x_range = x_lim[1] - x_lim[0]
+    y_range = y_lim[1] - y_lim[0]
+    proc_label_x = x_lim[0] + 0.50 * x_range
+    proc_label_y = y_lim[0] + 0.65 * y_range
     legend_font_size = 10
     
+    ax.text(proc_label_x, proc_label_y, proc_label)
     ax.legend(loc='upper right', prop={'size': legend_font_size})
-    ax.set_title(title,     fontsize=20)
+    #ax.set_title(title,     fontsize=20)
     ax.set_xlabel(x_label,  fontsize=16)
     ax.set_ylabel(y_label,  fontsize=16)
     ax.set_xlim(x_lim)
@@ -105,8 +112,9 @@ def makePlotTSlepSlep():
 
     info = {}
     info["title"]           = "TSlepSlep Limits"
-    info["x_label"]         = r"$m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}\right)$ [GeV]"
-    info["y_label"]         = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L}/\mathrm{R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["proc_label"]      = r"$p p \to \tilde{\ell}_{\mathrm{L,R}}^{+} \tilde{\ell}_{\mathrm{L,R}}^{-}$, $\tilde{\ell} \to \ell \tilde{\chi}_{1}^{0}$, $\ell \in [e, \mu]$"
+    info["x_label"]         = r"$m \left(\tilde{\ell}_{\mathrm{L,R}}\right)$ [GeV]"
+    info["y_label"]         = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L,R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["x_lim"]           = [110.0, 300.0]
     info["y_lim"]           = [0.0,   100.0]
     info["flatten_x_range"] = [0.0, 300.0]   # x range over which to set y values to mean y value
@@ -149,11 +157,12 @@ def makePlotTChiWZ():
     inputs["CMS_Compressed"]["flatten"]     = False
     
     info = {}
-    info["title"]   = "TChiWZ Limits"
-    info["x_label"] = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
-    info["y_label"] = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["x_lim"]   = [120.0, 400.0]
-    info["y_lim"]   = [3.0,   50.0]
+    info["title"]       = "TChiWZ Limits"
+    info["proc_label"]  = "Process label."
+    info["x_label"]     = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
+    info["y_label"]     = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["x_lim"]       = [120.0, 400.0]
+    info["y_lim"]       = [3.0,   50.0]
     
     #info["x_lim"]   = [0.0, 600.0]
     #info["y_lim"]   = [0.0, 50.0]
@@ -197,11 +206,12 @@ def makePlotT2ttC():
     inputs["CMS_Compressed"]["flatten"]     = False
     
     info = {}
-    info["title"]   = "T2ttC Limits"
-    info["x_label"] = r"$m \left(\tilde{t}_{1}\right)$ [GeV]" 
-    info["y_label"] = r"$\Delta m \left(\tilde{t}_{1}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["x_lim"]   = [400.0, 1000.0]
-    info["y_lim"]   = [10.0,  80.0]
+    info["title"]       = "T2ttC Limits"
+    info["proc_label"]  = "Process label."
+    info["x_label"]     = r"$m \left(\tilde{t}_{1}\right)$ [GeV]" 
+    info["y_label"]     = r"$\Delta m \left(\tilde{t}_{1}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["x_lim"]       = [400.0, 1000.0]
+    info["y_lim"]       = [10.0,  80.0]
     #info["x_lim"]   = [200.0, 800.0]
     #info["y_lim"]   = [10.0,  210.0]
     
