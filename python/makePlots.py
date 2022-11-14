@@ -181,6 +181,13 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["isDMvsM"]           = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
     inputs["ATLAS_0L"]["flatten"]           = False
+    inputs["ATLAS_1L"]                      = {}
+    inputs["ATLAS_1L"]["csv"]               = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["ATLAS_1L"]["label"]             = "ATLAS 1L (Observed)"
+    inputs["ATLAS_1L"]["color"]             = "xkcd:tangerine"
+    inputs["ATLAS_1L"]["isDMvsM"]           = True
+    inputs["ATLAS_1L"]["fillLeft"]          = False
+    inputs["ATLAS_1L"]["flatten"]           = False
     inputs["CMS_Compressed"]                = {}
     inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
@@ -195,6 +202,8 @@ def makePlotT2ttC():
     info["y_label"] = r"$\Delta m \left(\tilde{t}_{1}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["x_lim"]   = [400.0, 1000.0]
     info["y_lim"]   = [10.0,  80.0]
+    #info["x_lim"]   = [200.0, 800.0]
+    #info["y_lim"]   = [10.0,  210.0]
     
     #info["x_lim"]   = [300.0, 800.0]
     #info["y_lim"]   = [0.0,   250.0]
