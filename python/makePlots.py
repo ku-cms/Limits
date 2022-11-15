@@ -123,8 +123,10 @@ def makePlotTSlepSlep():
     info["proc_label"]          = r"$p p \to \tilde{\ell}_{\mathrm{L,R}}^{+} \tilde{\ell}_{\mathrm{L,R}}^{-}$, $\tilde{\ell} \to \ell \tilde{\chi}_{1}^{0}$, $\ell \in [e, \mu]$"
     info["x_label"]             = r"$m \left(\tilde{\ell}_{\mathrm{L,R}}\right)$ [GeV]"
     info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L,R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["proc_label_x_pos"]    = 0.50  # process label x position as fraction in range [0.0, 1.0]
-    info["proc_label_y_pos"]    = 0.65  # process label y position as fraction in range [0.0, 1.0]
+    #info["proc_label_x_pos"]    = 0.50  # process label x position as fraction in range [0.0, 1.0]
+    #info["proc_label_y_pos"]    = 0.65  # process label y position as fraction in range [0.0, 1.0]
+    info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
+    info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [110.0, 300.0]
     info["y_lim"]               = [0.0,   100.0]
     info["flatten_x_range"]     = [0.0, 300.0]   # x range over which to set y values to mean y value
@@ -171,8 +173,10 @@ def makePlotTChiWZ():
     info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}$ (Wino); $\tilde{\chi}_{2}^{0} \to Z^{*} \tilde{\chi}_{1}^{0}$, $\tilde{\chi}_{1}^{\pm} \to W^{*} \tilde{\chi}_{1}^{0}$"
     info["x_label"]             = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["proc_label_x_pos"]    = 0.40  # process label x position as fraction in range [0.0, 1.0]
-    info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
+    #info["proc_label_x_pos"]    = 0.40  # process label x position as fraction in range [0.0, 1.0]
+    #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
+    info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
+    info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [120.0, 400.0]
     info["y_lim"]               = [3.0,   50.0]
     
@@ -222,8 +226,10 @@ def makePlotT2ttC():
     info["proc_label"]          = r"$p p \to \tilde{t} \bar{\tilde{t}}$; $\tilde{t} \to b f \bar{f}' \tilde{\chi}_{1}^{0}$"
     info["x_label"]             = r"$m \left(\tilde{t}\right)$ [GeV]" 
     info["y_label"]             = r"$\Delta m \left(\tilde{t}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    info["proc_label_x_pos"]    = 0.70  # process label x position as fraction in range [0.0, 1.0]
-    info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
+    #info["proc_label_x_pos"]    = 0.70  # process label x position as fraction in range [0.0, 1.0]
+    #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
+    info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
+    info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [400.0, 1000.0]
     info["y_lim"]               = [10.0,  80.0]
     #info["x_lim"]   = [200.0, 800.0]
