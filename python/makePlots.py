@@ -99,7 +99,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
-    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:orchid"
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
@@ -110,13 +110,13 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["isDMvsM"]           = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
-    inputs["CMS_Compressed"]                = {}
-    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
-    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
-    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
-    inputs["CMS_Compressed"]["isDMvsM"]     = True
-    inputs["CMS_Compressed"]["fillLeft"]    = False
-    inputs["CMS_Compressed"]["flatten"]     = False
+    inputs["CMS_Preliminary"]               = {}
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillLeft"]   = False
+    inputs["CMS_Preliminary"]["flatten"]    = False
 
     info = {}
     info["title"]               = "TSlepSlep Limits"
@@ -156,17 +156,17 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
-    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:cherry red"
+    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:orchid"
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
-    inputs["CMS_Compressed"]                = {}
-    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
-    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
-    inputs["CMS_Compressed"]["isDMvsM"]     = True
-    inputs["CMS_Compressed"]["fillLeft"]    = False
-    inputs["CMS_Compressed"]["flatten"]     = False
+    inputs["CMS_Preliminary"]               = {}
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillLeft"]   = False
+    inputs["CMS_Preliminary"]["flatten"]    = False
     
     info = {}
     info["title"]               = "TChiWZ Limits"
@@ -202,7 +202,7 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]                      = {}
     inputs["ATLAS_0L"]["csv"]               = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
     inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
-    inputs["ATLAS_0L"]["color"]             = "xkcd:cherry red"
+    inputs["ATLAS_0L"]["color"]             = "xkcd:orchid"
     inputs["ATLAS_0L"]["isDMvsM"]           = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
     inputs["ATLAS_0L"]["flatten"]           = False
@@ -213,13 +213,13 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["isDMvsM"]           = True
     inputs["ATLAS_1L"]["fillLeft"]          = False
     inputs["ATLAS_1L"]["flatten"]           = False
-    inputs["CMS_Compressed"]                = {}
-    inputs["CMS_Compressed"]["csv"]         = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_Compressed"]["label"]       = "CMS Compressed (Expected)"
-    inputs["CMS_Compressed"]["color"]       = "xkcd:apple green"
-    inputs["CMS_Compressed"]["isDMvsM"]     = True
-    inputs["CMS_Compressed"]["fillLeft"]    = False
-    inputs["CMS_Compressed"]["flatten"]     = False
+    inputs["CMS_Preliminary"]               = {}
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillLeft"]   = False
+    inputs["CMS_Preliminary"]["flatten"]    = False
     
     info = {}
     info["title"]               = "T2ttC Limits"
