@@ -43,12 +43,16 @@ def plot(plot_dir, plot_name, inputs, info):
     # get coordinates for labels
     x_range = x_lim[1] - x_lim[0]
     y_range = y_lim[1] - y_lim[0]
-    #proc_label_x = x_lim[0] + 0.50 * x_range
-    #proc_label_y = y_lim[0] + 0.65 * y_range
     proc_label_x = x_lim[0] + proc_label_x_pos * x_range
     proc_label_y = y_lim[0] + proc_label_y_pos * y_range
+    energy_label_x = x_lim[0] + 0.80 * x_range
+    energy_label_y = y_lim[0] + 1.02 * y_range
+    energy_label = r"$\sqrt{s} = 13$ TeV"
     legend_font_size = 10
     
+    # label for center of mass energy
+    ax.text(energy_label_x, energy_label_y, energy_label)
+    # label for process
     ax.text(proc_label_x, proc_label_y, proc_label)
     ax.legend(loc='upper right', prop={'size': legend_font_size})
     #ax.set_title(title,     fontsize=20)
