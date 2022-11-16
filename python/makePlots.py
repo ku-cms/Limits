@@ -5,6 +5,17 @@ from matplotlib.ticker import AutoMinorLocator
 import tools
 import numpy as np
 
+# Get color using index
+def getColor(index):
+    colors = {
+        1 : "xkcd:pinkish purple",
+        2 : "xkcd:tangerine",
+        3 : "xkcd:apple green",
+        4 : "xkcd:bright blue",
+        5 : "xkcd:light red"
+    }
+    return colors[index]
+
 # Create plot
 def plot(plot_dir, plot_name, inputs, info):
     output_name = "{0}/{1}.pdf".format(plot_dir, plot_name)
@@ -45,16 +56,18 @@ def plot(plot_dir, plot_name, inputs, info):
     y_range = y_lim[1] - y_lim[0]
     proc_label_x = x_lim[0] + proc_label_x_pos * x_range
     proc_label_y = y_lim[0] + proc_label_y_pos * y_range
-    energy_label_x = x_lim[0] + 0.80 * x_range
+    energy_label_x = x_lim[0] + 0.77 * x_range
     energy_label_y = y_lim[0] + 1.02 * y_range
     energy_label = r"$\sqrt{s} = 13$ TeV"
-    legend_font_size = 10
+    label_font_size     = 12
+    legend_font_size    = 10
     
     # label for center of mass energy
-    ax.text(energy_label_x, energy_label_y, energy_label)
+    ax.text(energy_label_x, energy_label_y, energy_label, fontsize=label_font_size)
     # label for process
-    ax.text(proc_label_x, proc_label_y, proc_label)
-    ax.legend(loc='upper right', prop={'size': legend_font_size})
+    ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
+    
+    ax.legend(loc='upper left', prop={'size': legend_font_size})
     #ax.set_title(title,     fontsize=20)
     ax.set_xlabel(x_label,  fontsize=16)
     ax.set_ylabel(y_label,  fontsize=16)
@@ -99,21 +112,21 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
-    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:orchid"
+    inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["ATLAS_2L"]                      = {}
     inputs["ATLAS_2L"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
     inputs["ATLAS_2L"]["label"]             = "ATLAS 2L (Observed)"
-    inputs["ATLAS_2L"]["color"]             = "xkcd:tangerine"
+    inputs["ATLAS_2L"]["color"]             = getColor(2)
     inputs["ATLAS_2L"]["isDMvsM"]           = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
-    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
@@ -156,14 +169,14 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
-    inputs["ATLAS_Soft_2L"]["color"]        = "xkcd:orchid"
+    inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
-    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
@@ -202,21 +215,21 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]                      = {}
     inputs["ATLAS_0L"]["csv"]               = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
     inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
-    inputs["ATLAS_0L"]["color"]             = "xkcd:orchid"
+    inputs["ATLAS_0L"]["color"]             = getColor(1)
     inputs["ATLAS_0L"]["isDMvsM"]           = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
     inputs["ATLAS_0L"]["flatten"]           = False
     inputs["ATLAS_1L"]                      = {}
     inputs["ATLAS_1L"]["csv"]               = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["ATLAS_1L"]["label"]             = "ATLAS 1L (Observed)"
-    inputs["ATLAS_1L"]["color"]             = "xkcd:tangerine"
+    inputs["ATLAS_1L"]["color"]             = getColor(2)
     inputs["ATLAS_1L"]["isDMvsM"]           = True
     inputs["ATLAS_1L"]["fillLeft"]          = False
     inputs["ATLAS_1L"]["flatten"]           = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
-    inputs["CMS_Preliminary"]["color"]      = "xkcd:apple green"
+    inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
