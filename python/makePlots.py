@@ -85,6 +85,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     ax.tick_params(axis='both', which='both', bottom=True, top=True, left=True, right=True, direction="in")
     ax.tick_params(axis='both', which='major', labelsize=16, length=8)
     ax.tick_params(axis='both', which='minor', labelsize=8,  length=4)
+    ax.grid(color="black", linestyle="dotted")
     
     plt.savefig(output_name, bbox_inches='tight')
 
@@ -262,7 +263,7 @@ def makePlotT2ttC():
     #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [400.0, 1000.0]
+    info["x_lim"]               = [300.0, 900.0]
     info["y_lim"]               = [10.0,  80.0]
     #info["x_lim"]   = [200.0, 800.0]
     #info["y_lim"]   = [10.0,  210.0]
