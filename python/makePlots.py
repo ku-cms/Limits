@@ -17,7 +17,7 @@ def getColor(index):
     return colors[index]
 
 # Create plot
-def plot(plot_dir, plot_name, inputs, info):
+def plot(plot_dir, plot_name, input_list, inputs, info):
     output_name = "{0}/{1}.pdf".format(plot_dir, plot_name)
     
     title               = info["title"]
@@ -28,28 +28,30 @@ def plot(plot_dir, plot_name, inputs, info):
     proc_label_y_pos    = info["proc_label_y_pos"]
     x_lim               = info["x_lim"]
     y_lim               = info["y_lim"]
+    alpha_line          = 0.0
+    alpha_fill          = 1.0
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
     print("Creating the plot '{0}'".format(title))
     
-    for key in inputs:
+    for key in input_list:
         data        = inputs[key]["data"]
         label       = inputs[key]["label"]
         color       = inputs[key]["color"]
         fillLeft    = inputs[key]["fillLeft"]
         x_vals, y_vals = tools.getXYVals(data)
-        plt.plot(x_vals, y_vals, label=label, color=color)
-        plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=0.5)
+        plt.plot(x_vals, y_vals, label=label, color=color, alpha=alpha_line)
+        plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
         if fillLeft:
             x_min  = x_lim[0]
             x_max  = np.min(x_vals)
             x_fill = [x_min, x_max]
-            plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=0.5)
+            plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=alpha_fill)
         print(" - Plotted '{0}'".format(key))
     
     # Enable dark mode!
-    #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=0.5)
+    #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=alpha_fill)
     
     # get coordinates for labels
     x_range = x_lim[1] - x_lim[0]
@@ -67,7 +69,12 @@ def plot(plot_dir, plot_name, inputs, info):
     # label for process
     ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
     
-    ax.legend(loc='upper left', prop={'size': legend_font_size})
+    legend = ax.legend(loc='upper left', prop={'size': legend_font_size})
+    
+    # set alpha for legend entries
+    for handle in legend.legendHandles:
+        handle.set_alpha(1.0)
+    
     #ax.set_title(title,     fontsize=20)
     ax.set_xlabel(x_label,  fontsize=16)
     ax.set_ylabel(y_label,  fontsize=16)
@@ -82,12 +89,12 @@ def plot(plot_dir, plot_name, inputs, info):
     plt.savefig(output_name, bbox_inches='tight')
 
 # Prepare to plot
-def preparePlot(plot_dir, plot_name, inputs, info):
+def preparePlot(plot_dir, plot_name, input_list, inputs, info):
     title = info["title"]
     print("Preparing to plot '{0}'".format(title))
     
     # load data from csv file
-    for key in inputs:
+    for key in input_list:
         inputs[key]["data"] = tools.getData(inputs[key]["csv"]) 
         inputs[key]["data"] = tools.getCleanData(inputs[key]["data"])
         # convert to DM vs M data if needed
@@ -99,13 +106,17 @@ def preparePlot(plot_dir, plot_name, inputs, info):
     
     # plot
     tools.makeDir(plot_dir)
-    plot(plot_dir, plot_name, inputs, info)
+    plot(plot_dir, plot_name, input_list, inputs, info)
 
 # Create plot for TSlepSlep
 def makePlotTSlepSlep():
     data_dir    = "data/TSlepSlep"
     plot_dir    = "plots"
     plot_name   = "TSlepSlep_Limits"
+
+    # use list to define order when plotting
+    #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_Preliminary"]
+    input_list  = ["CMS_Preliminary", "ATLAS_2L", "ATLAS_Soft_2L"]
     
     # TSlepSlep
     inputs                                  = {}
@@ -156,13 +167,17 @@ def makePlotTSlepSlep():
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
 
-    preparePlot(plot_dir, plot_name, inputs, info)
+    preparePlot(plot_dir, plot_name, input_list, inputs, info)
 
 # Create plot for TChiWZ
 def makePlotTChiWZ():
     data_dir    = "data/TChiWZ"
     plot_dir    = "plots"
     plot_name   = "TChiWZ_Limits"
+    
+    # use list to define order when plotting
+    #input_list  = ["ATLAS_Soft_2L", "CMS_Preliminary"]
+    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L"]
     
     # TChiWZ
     inputs                                  = {}
@@ -202,13 +217,17 @@ def makePlotTChiWZ():
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
     
-    preparePlot(plot_dir, plot_name, inputs, info)
+    preparePlot(plot_dir, plot_name, input_list, inputs, info)
 
 # Create plot for T2ttC
 def makePlotT2ttC():
     data_dir    = "data/T2ttC"
     plot_dir    = "plots"
     plot_name   = "T2ttC_Limits"
+    
+    # use list to define order when plotting
+    #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_Preliminary"]
+    input_list  = ["CMS_Preliminary", "ATLAS_0L", "ATLAS_1L"]
     
     # T2ttC
     inputs                                  = {}
@@ -254,7 +273,7 @@ def makePlotT2ttC():
     #info["x_lim"]   = [0.0, 1000.0]
     #info["y_lim"]   = [0.0, 300.0]
     
-    preparePlot(plot_dir, plot_name, inputs, info)
+    preparePlot(plot_dir, plot_name, input_list, inputs, info)
 
 def main():
     makePlotTSlepSlep()
