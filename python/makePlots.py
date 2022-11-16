@@ -30,6 +30,8 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     y_lim               = info["y_lim"]
     alpha_line          = 0.0
     alpha_fill          = 1.0
+    #alpha_line          = 1.0
+    #alpha_fill          = 0.0
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -39,15 +41,25 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         data        = inputs[key]["data"]
         label       = inputs[key]["label"]
         color       = inputs[key]["color"]
+        fillDown    = inputs[key]["fillDown"]
         fillLeft    = inputs[key]["fillLeft"]
+        
         x_vals, y_vals = tools.getXYVals(data)
+        
         plt.plot(x_vals, y_vals, label=label, color=color, alpha=alpha_line)
-        plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
+        
+        # specify vertical limits for fill
+        if fillDown:
+            plt.fill_between(x_vals, y_lim[0], y_vals, color=color, alpha=alpha_fill)
+        else:
+            plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
+        
         if fillLeft:
             x_min  = x_lim[0]
             x_max  = np.min(x_vals)
             x_fill = [x_min, x_max]
             plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=alpha_fill)
+        
         print(" - Plotted '{0}'".format(key))
     
     # Enable dark mode!
@@ -68,7 +80,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     ax.text(energy_label_x, energy_label_y, energy_label, fontsize=label_font_size)
     # label for process
     ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
-    
+    # legend 
     legend = ax.legend(loc='upper left', prop={'size': legend_font_size})
     
     # set alpha for legend entries
@@ -126,6 +138,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = False
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["ATLAS_2L"]                      = {}
@@ -133,6 +146,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["label"]             = "ATLAS 2L (Observed)"
     inputs["ATLAS_2L"]["color"]             = getColor(2)
     inputs["ATLAS_2L"]["isDMvsM"]           = False
+    inputs["ATLAS_2L"]["fillDown"]          = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
     inputs["CMS_Preliminary"]               = {}
@@ -140,6 +154,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = False
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
 
@@ -187,6 +202,7 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = False
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["CMS_Preliminary"]               = {}
@@ -194,6 +210,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = False
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
     
@@ -228,7 +245,8 @@ def makePlotT2ttC():
     
     # use list to define order when plotting
     #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_0L", "ATLAS_1L"]
+    #input_list  = ["CMS_Preliminary", "CMS_0L"]
+    input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L"]
     
     # T2ttC
     inputs                                  = {}
@@ -237,6 +255,7 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
     inputs["ATLAS_0L"]["color"]             = getColor(1)
     inputs["ATLAS_0L"]["isDMvsM"]           = False
+    inputs["ATLAS_0L"]["fillDown"]          = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
     inputs["ATLAS_0L"]["flatten"]           = False
     inputs["ATLAS_1L"]                      = {}
@@ -244,13 +263,23 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["label"]             = "ATLAS 1L (Observed)"
     inputs["ATLAS_1L"]["color"]             = getColor(2)
     inputs["ATLAS_1L"]["isDMvsM"]           = True
+    inputs["ATLAS_1L"]["fillDown"]          = False
     inputs["ATLAS_1L"]["fillLeft"]          = False
     inputs["ATLAS_1L"]["flatten"]           = False
+    inputs["CMS_0L"]                        = {}
+    inputs["CMS_0L"]["csv"]                 = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
+    inputs["CMS_0L"]["label"]               = "CMS 0L (Expected)"
+    inputs["CMS_0L"]["color"]               = getColor(4)
+    inputs["CMS_0L"]["isDMvsM"]             = True
+    inputs["CMS_0L"]["fillDown"]            = True
+    inputs["CMS_0L"]["fillLeft"]            = True
+    inputs["CMS_0L"]["flatten"]             = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = False
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
     
