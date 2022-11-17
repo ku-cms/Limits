@@ -7,13 +7,13 @@ import numpy as np
 
 # Get color using index
 def getColor(index):
-    #colors = {
-    #    1 : "xkcd:pinkish purple",
-    #    2 : "xkcd:tangerine",
-    #    3 : "xkcd:apple green",
-    #    4 : "xkcd:bright blue",
-    #    5 : "xkcd:light red"
-    #}
+    colors = {
+        1 : "xkcd:pinkish purple",
+        2 : "xkcd:tangerine",
+        3 : "xkcd:apple green",
+        4 : "xkcd:bright blue",
+        5 : "xkcd:light red"
+    }
     #colors = {
     #    1 : "xkcd:pinkish",
     #    2 : "xkcd:pale orange",
@@ -21,13 +21,13 @@ def getColor(index):
     #    4 : "xkcd:dark sky blue",
     #    5 : "xkcd:light red"
     #}
-    colors = {
-        1 : "xkcd:light red",
-        2 : "xkcd:light orange",
-        3 : "xkcd:green",
-        4 : "xkcd:azure",
-        5 : "xkcd:lavender"
-    }
+    #colors = {
+    #    1 : "xkcd:light red",
+    #    2 : "xkcd:light orange",
+    #    3 : "xkcd:green",
+    #    4 : "xkcd:azure",
+    #    5 : "xkcd:lavender"
+    #}
     return colors[index]
 
 # Create plot
@@ -143,7 +143,8 @@ def makePlotTSlepSlep():
 
     # use list to define order when plotting
     #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_2L", "ATLAS_Soft_2L"]
+    #input_list  = ["CMS_Preliminary", "CMS_2L"]
+    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     
     # TSlepSlep
     inputs                                  = {}
@@ -163,6 +164,14 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["fillDown"]          = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
+    inputs["CMS_2L"]                        = {}
+    inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p0.csv".format(data_dir)
+    inputs["CMS_2L"]["label"]               = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
+    inputs["CMS_2L"]["color"]               = getColor(4)
+    inputs["CMS_2L"]["isDMvsM"]             = False
+    inputs["CMS_2L"]["fillDown"]            = False
+    inputs["CMS_2L"]["fillLeft"]            = False
+    inputs["CMS_2L"]["flatten"]             = True
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
@@ -181,9 +190,12 @@ def makePlotTSlepSlep():
     #info["proc_label_y_pos"]    = 0.65  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [110.0, 300.0]
+    info["x_lim"]               = [130.0, 300.0]
     info["y_lim"]               = [0.0,   100.0]
     info["flatten_x_range"]     = [0.0, 300.0]   # x range over which to set y values to mean y value
+    
+    #info["x_lim"]               = [110.0, 300.0]
+    #info["y_lim"]               = [0.0,   100.0]
     
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
@@ -191,8 +203,8 @@ def makePlotTSlepSlep():
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   175.0]
     
-    #info["x_lim"]   = [100.0, 600.0]
-    #info["y_lim"]   = [0.0,   200.0]
+    #info["x_lim"]   = [0.0, 400.0]
+    #info["y_lim"]   = [0.0, 200.0]
     
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
