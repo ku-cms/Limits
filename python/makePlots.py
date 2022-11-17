@@ -302,7 +302,7 @@ def makePlotT2ttC():
     inputs["CMS_0L"]                        = {}
     inputs["CMS_0L"]["csv"]                 = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
     inputs["CMS_0L"]["label"]               = "CMS: Phys. Rev. D 104, 052001 (2021)"
-    inputs["CMS_0L"]["color"]               = getColor(4)
+    inputs["CMS_0L"]["color"]               = getColor(5)
     inputs["CMS_0L"]["isDMvsM"]             = True
     inputs["CMS_0L"]["fillDown"]            = True
     inputs["CMS_0L"]["fillLeft"]            = True
@@ -310,7 +310,7 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]                     = {}
     inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
-    inputs["CMS_2L_3L"]["color"]            = getColor(5)
+    inputs["CMS_2L_3L"]["color"]            = getColor(4)
     inputs["CMS_2L_3L"]["isDMvsM"]          = True
     inputs["CMS_2L_3L"]["fillDown"]         = False
     inputs["CMS_2L_3L"]["fillLeft"]         = False
