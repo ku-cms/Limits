@@ -95,7 +95,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     # label for process
     ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
     # legend 
-    legend = ax.legend(loc='upper left', prop={'size': legend_font_size})
+    legend = ax.legend(loc='upper left', framealpha=0.9, prop={'size': legend_font_size})
     
     # set alpha for legend entries
     for handle in legend.legendHandles:
