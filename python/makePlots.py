@@ -7,12 +7,26 @@ import numpy as np
 
 # Get color using index
 def getColor(index):
+    #colors = {
+    #    1 : "xkcd:pinkish purple",
+    #    2 : "xkcd:tangerine",
+    #    3 : "xkcd:apple green",
+    #    4 : "xkcd:bright blue",
+    #    5 : "xkcd:light red"
+    #}
+    #colors = {
+    #    1 : "xkcd:pinkish",
+    #    2 : "xkcd:pale orange",
+    #    3 : "xkcd:jade",
+    #    4 : "xkcd:dark sky blue",
+    #    5 : "xkcd:light red"
+    #}
     colors = {
-        1 : "xkcd:pinkish purple",
-        2 : "xkcd:tangerine",
-        3 : "xkcd:apple green",
-        4 : "xkcd:bright blue",
-        5 : "xkcd:light red"
+        1 : "xkcd:light red",
+        2 : "xkcd:light orange",
+        3 : "xkcd:green",
+        4 : "xkcd:azure",
+        5 : "xkcd:lavender"
     }
     return colors[index]
 
@@ -74,7 +88,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     energy_label_y = y_lim[0] + 1.02 * y_range
     energy_label = r"$\sqrt{s} = 13$ TeV"
     label_font_size     = 12
-    legend_font_size    = 10
+    legend_font_size    = 8
     
     # label for center of mass energy
     ax.text(energy_label_x, energy_label_y, energy_label, fontsize=label_font_size)
@@ -135,7 +149,7 @@ def makePlotTSlepSlep():
     inputs                                  = {}
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillDown"]     = False
@@ -143,7 +157,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["ATLAS_2L"]                      = {}
     inputs["ATLAS_2L"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
-    inputs["ATLAS_2L"]["label"]             = "ATLAS 2L (Observed)"
+    inputs["ATLAS_2L"]["label"]             = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
     inputs["ATLAS_2L"]["color"]             = getColor(2)
     inputs["ATLAS_2L"]["isDMvsM"]           = False
     inputs["ATLAS_2L"]["fillDown"]          = False
@@ -199,7 +213,7 @@ def makePlotTChiWZ():
     inputs                                  = {}
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillDown"]     = False
@@ -252,7 +266,7 @@ def makePlotT2ttC():
     inputs                                  = {}
     inputs["ATLAS_0L"]                      = {}
     inputs["ATLAS_0L"]["csv"]               = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
-    inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
+    inputs["ATLAS_0L"]["label"]             = "ATLAS: Eur. Phys. J. C 80, 737 (2020)"
     inputs["ATLAS_0L"]["color"]             = getColor(1)
     inputs["ATLAS_0L"]["isDMvsM"]           = False
     inputs["ATLAS_0L"]["fillDown"]          = False
@@ -260,7 +274,7 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["flatten"]           = False
     inputs["ATLAS_1L"]                      = {}
     inputs["ATLAS_1L"]["csv"]               = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["ATLAS_1L"]["label"]             = "ATLAS 1L (Observed)"
+    inputs["ATLAS_1L"]["label"]             = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
     inputs["ATLAS_1L"]["color"]             = getColor(2)
     inputs["ATLAS_1L"]["isDMvsM"]           = True
     inputs["ATLAS_1L"]["fillDown"]          = False
@@ -268,7 +282,7 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["flatten"]           = False
     inputs["CMS_0L"]                        = {}
     inputs["CMS_0L"]["csv"]                 = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
-    inputs["CMS_0L"]["label"]               = "CMS 0L (Expected)"
+    inputs["CMS_0L"]["label"]               = "CMS: Phys. Rev. D 104, 052001 (2021)"
     inputs["CMS_0L"]["color"]               = getColor(4)
     inputs["CMS_0L"]["isDMvsM"]             = True
     inputs["CMS_0L"]["fillDown"]            = True
