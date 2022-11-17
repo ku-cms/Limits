@@ -14,6 +14,20 @@ def getColor(index):
         4 : "xkcd:bright blue",
         5 : "xkcd:light red"
     }
+    #colors = {
+    #    1 : "xkcd:pinkish",
+    #    2 : "xkcd:pale orange",
+    #    3 : "xkcd:jade",
+    #    4 : "xkcd:dark sky blue",
+    #    5 : "xkcd:light red"
+    #}
+    #colors = {
+    #    1 : "xkcd:light red",
+    #    2 : "xkcd:light orange",
+    #    3 : "xkcd:green",
+    #    4 : "xkcd:azure",
+    #    5 : "xkcd:lavender"
+    #}
     return colors[index]
 
 # Create plot
@@ -30,6 +44,8 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     y_lim               = info["y_lim"]
     alpha_line          = 0.0
     alpha_fill          = 1.0
+    #alpha_line          = 1.0
+    #alpha_fill          = 0.0
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -39,15 +55,25 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         data        = inputs[key]["data"]
         label       = inputs[key]["label"]
         color       = inputs[key]["color"]
+        fillDown    = inputs[key]["fillDown"]
         fillLeft    = inputs[key]["fillLeft"]
+        
         x_vals, y_vals = tools.getXYVals(data)
+        
         plt.plot(x_vals, y_vals, label=label, color=color, alpha=alpha_line)
-        plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
+        
+        # specify vertical limits for fill
+        if fillDown:
+            plt.fill_between(x_vals, y_lim[0], y_vals, color=color, alpha=alpha_fill)
+        else:
+            plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
+        
         if fillLeft:
             x_min  = x_lim[0]
             x_max  = np.min(x_vals)
             x_fill = [x_min, x_max]
             plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=alpha_fill)
+        
         print(" - Plotted '{0}'".format(key))
     
     # Enable dark mode!
@@ -62,14 +88,14 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     energy_label_y = y_lim[0] + 1.02 * y_range
     energy_label = r"$\sqrt{s} = 13$ TeV"
     label_font_size     = 12
-    legend_font_size    = 10
+    legend_font_size    = 8
     
     # label for center of mass energy
     ax.text(energy_label_x, energy_label_y, energy_label, fontsize=label_font_size)
     # label for process
     ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
-    
-    legend = ax.legend(loc='upper left', prop={'size': legend_font_size})
+    # legend 
+    legend = ax.legend(loc='upper left', framealpha=0.9, prop={'size': legend_font_size})
     
     # set alpha for legend entries
     for handle in legend.legendHandles:
@@ -117,29 +143,42 @@ def makePlotTSlepSlep():
 
     # use list to define order when plotting
     #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_2L", "ATLAS_Soft_2L"]
+    #input_list  = ["CMS_Preliminary"]
+    #input_list  = ["CMS_Preliminary", "CMS_2L"]
+    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     
     # TSlepSlep
     inputs                                  = {}
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["ATLAS_2L"]                      = {}
     inputs["ATLAS_2L"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
-    inputs["ATLAS_2L"]["label"]             = "ATLAS 2L (Observed)"
+    inputs["ATLAS_2L"]["label"]             = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
     inputs["ATLAS_2L"]["color"]             = getColor(2)
     inputs["ATLAS_2L"]["isDMvsM"]           = False
+    inputs["ATLAS_2L"]["fillDown"]          = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
+    inputs["CMS_2L"]                        = {}
+    inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L"]["label"]               = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
+    inputs["CMS_2L"]["color"]               = getColor(4)
+    inputs["CMS_2L"]["isDMvsM"]             = False
+    inputs["CMS_2L"]["fillDown"]            = False
+    inputs["CMS_2L"]["fillLeft"]            = False
+    inputs["CMS_2L"]["flatten"]             = True
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
 
@@ -162,8 +201,8 @@ def makePlotTSlepSlep():
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   175.0]
     
-    #info["x_lim"]   = [100.0, 600.0]
-    #info["y_lim"]   = [0.0,   200.0]
+    #info["x_lim"]   = [0.0, 400.0]
+    #info["y_lim"]   = [0.0, 200.0]
     
     #info["x_lim"]   = [0.0, 800.0]
     #info["y_lim"]   = [0.0, 800.0]
@@ -178,22 +217,33 @@ def makePlotTChiWZ():
     
     # use list to define order when plotting
     #input_list  = ["ATLAS_Soft_2L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L"]
+    #input_list  = ["CMS_Preliminary", "CMS_2L_3L"]
+    input_list  = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
     
     # TChiWZ
     inputs                                  = {}
     inputs["ATLAS_Soft_2L"]                 = {}
     inputs["ATLAS_Soft_2L"]["csv"]          = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS Soft 2L (Observed)"
+    inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
+    inputs["CMS_2L_3L"]                     = {}
+    inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["color"]            = getColor(4)
+    inputs["CMS_2L_3L"]["isDMvsM"]          = True
+    inputs["CMS_2L_3L"]["fillDown"]         = True
+    inputs["CMS_2L_3L"]["fillLeft"]         = False
+    inputs["CMS_2L_3L"]["flatten"]          = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
     
@@ -206,7 +256,7 @@ def makePlotTChiWZ():
     #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [120.0, 400.0]
+    info["x_lim"]               = [120.0, 350.0]
     info["y_lim"]               = [3.0,   50.0]
     
     #info["x_lim"]   = [0.0, 600.0]
@@ -228,29 +278,49 @@ def makePlotT2ttC():
     
     # use list to define order when plotting
     #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_0L", "ATLAS_1L"]
+    #input_list  = ["CMS_Preliminary", "CMS_0L"]
+    input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
     
     # T2ttC
     inputs                                  = {}
     inputs["ATLAS_0L"]                      = {}
     inputs["ATLAS_0L"]["csv"]               = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
-    inputs["ATLAS_0L"]["label"]             = "ATLAS 0L (Observed)"
+    inputs["ATLAS_0L"]["label"]             = "ATLAS: Eur. Phys. J. C 80, 737 (2020)"
     inputs["ATLAS_0L"]["color"]             = getColor(1)
     inputs["ATLAS_0L"]["isDMvsM"]           = False
+    inputs["ATLAS_0L"]["fillDown"]          = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
     inputs["ATLAS_0L"]["flatten"]           = False
     inputs["ATLAS_1L"]                      = {}
     inputs["ATLAS_1L"]["csv"]               = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["ATLAS_1L"]["label"]             = "ATLAS 1L (Observed)"
+    inputs["ATLAS_1L"]["label"]             = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
     inputs["ATLAS_1L"]["color"]             = getColor(2)
     inputs["ATLAS_1L"]["isDMvsM"]           = True
+    inputs["ATLAS_1L"]["fillDown"]          = False
     inputs["ATLAS_1L"]["fillLeft"]          = False
     inputs["ATLAS_1L"]["flatten"]           = False
+    inputs["CMS_0L"]                        = {}
+    inputs["CMS_0L"]["csv"]                 = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
+    inputs["CMS_0L"]["label"]               = "CMS: Phys. Rev. D 104, 052001 (2021)"
+    inputs["CMS_0L"]["color"]               = getColor(5)
+    inputs["CMS_0L"]["isDMvsM"]             = True
+    inputs["CMS_0L"]["fillDown"]            = True
+    inputs["CMS_0L"]["fillLeft"]            = True
+    inputs["CMS_0L"]["flatten"]             = False
+    inputs["CMS_2L_3L"]                     = {}
+    inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["color"]            = getColor(4)
+    inputs["CMS_2L_3L"]["isDMvsM"]          = True
+    inputs["CMS_2L_3L"]["fillDown"]         = False
+    inputs["CMS_2L_3L"]["fillLeft"]         = False
+    inputs["CMS_2L_3L"]["flatten"]          = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
+    inputs["CMS_Preliminary"]["fillDown"]   = False
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
     

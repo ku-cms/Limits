@@ -1,0 +1,66 @@
+#: table_doi: 10.17182/hepdata.103065.v1/t33
+#: name: Figure 09-a Observed Lines
+#: description: The observed exclusion contour of the T2ttC simplified model with respect to approximate NNLO+NNLL signal cross sections and the change in this contour due to variation of these cross sections within their theoretical uncertainties ($\sigma_{\text{theory}}$).
+#: data_file: figure_09-a_observed_lines.yaml
+#: keyword observables: CLS
+#: keyword phrases: Supersymmetry | Proton-Proton Scattering | Stop pair production | Top squark | Dark Matter | SUSY | T2ttC
+#: keyword cmenergies: 13000
+#: keyword reactions: P P --> STOP STOP | STOP --> BQ LEPTON+ LEPTON- NEUTRALINO
+
+$m_{\tilde{t}}$ [GeV],Observed Exclusion Contour
+617.07,10.0
+617.5,16.731
+619.32,20.0
+626.0,25.375
+630.96,30.0
+630.08,38.298
+631.54,40.0
+635.01,46.245
+633.01,50.0
+626.0,55.059
+609.7,60.0
+604.73,61.818
+600.0,66.305
+597.3,68.874
+596.67,70.0
+588.06,75.024
+576.0,77.384
+568.29,80.0
+606.96,~
+607.14,~
+611.14,~
+621.25,~
+619.55,~
+617.44,~
+621.05,~
+626.0,~
+626.8,~
+626.62,~
+626.0,~
+620.21,~
+600.0,~
+597.5,~
+596.47,~
+590.26,~
+588.01,~
+583.03,~
+576.0,~
+559.38,~
+627.0,~
+627.28,~
+627.86,~
+628.49,~
+638.17,~
+637.62,~
+641.8,~
+643.35,~
+639.48,~
+626.0,~
+624.89,~
+612.06,~
+606.36,~
+604.04,~
+600.0,~
+593.13,~
+578.29,~
+
