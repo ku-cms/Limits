@@ -143,6 +143,7 @@ def makePlotTSlepSlep():
 
     # use list to define order when plotting
     #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_Preliminary"]
+    #input_list  = ["CMS_Preliminary"]
     #input_list  = ["CMS_Preliminary", "CMS_2L"]
     input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     
@@ -153,7 +154,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
-    inputs["ATLAS_Soft_2L"]["fillDown"]     = False
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
     inputs["ATLAS_2L"]                      = {}
@@ -165,7 +166,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["fillLeft"]          = False
     inputs["ATLAS_2L"]["flatten"]           = True
     inputs["CMS_2L"]                        = {}
-    inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p0.csv".format(data_dir)
+    inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L"]["label"]               = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
     inputs["CMS_2L"]["color"]               = getColor(4)
     inputs["CMS_2L"]["isDMvsM"]             = False
@@ -177,7 +178,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
-    inputs["CMS_Preliminary"]["fillDown"]   = False
+    inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
 
@@ -190,12 +191,9 @@ def makePlotTSlepSlep():
     #info["proc_label_y_pos"]    = 0.65  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [130.0, 300.0]
+    info["x_lim"]               = [110.0, 300.0]
     info["y_lim"]               = [0.0,   100.0]
     info["flatten_x_range"]     = [0.0, 300.0]   # x range over which to set y values to mean y value
-    
-    #info["x_lim"]               = [110.0, 300.0]
-    #info["y_lim"]               = [0.0,   100.0]
     
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
@@ -219,7 +217,8 @@ def makePlotTChiWZ():
     
     # use list to define order when plotting
     #input_list  = ["ATLAS_Soft_2L", "CMS_Preliminary"]
-    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L"]
+    #input_list  = ["CMS_Preliminary", "CMS_2L_3L"]
+    input_list  = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
     
     # TChiWZ
     inputs                                  = {}
@@ -228,15 +227,23 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]["label"]        = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]        = getColor(1)
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
-    inputs["ATLAS_Soft_2L"]["fillDown"]     = False
+    inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
     inputs["ATLAS_Soft_2L"]["flatten"]      = False
+    inputs["CMS_2L_3L"]                     = {}
+    inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["color"]            = getColor(4)
+    inputs["CMS_2L_3L"]["isDMvsM"]          = True
+    inputs["CMS_2L_3L"]["fillDown"]         = True
+    inputs["CMS_2L_3L"]["fillLeft"]         = False
+    inputs["CMS_2L_3L"]["flatten"]          = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
-    inputs["CMS_Preliminary"]["fillDown"]   = False
+    inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["flatten"]    = False
     
@@ -249,7 +256,7 @@ def makePlotTChiWZ():
     #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [120.0, 400.0]
+    info["x_lim"]               = [120.0, 350.0]
     info["y_lim"]               = [3.0,   50.0]
     
     #info["x_lim"]   = [0.0, 600.0]
