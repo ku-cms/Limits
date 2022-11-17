@@ -279,7 +279,7 @@ def makePlotT2ttC():
     # use list to define order when plotting
     #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_Preliminary"]
     #input_list  = ["CMS_Preliminary", "CMS_0L"]
-    input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L"]
+    input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
     
     # T2ttC
     inputs                                  = {}
@@ -307,6 +307,14 @@ def makePlotT2ttC():
     inputs["CMS_0L"]["fillDown"]            = True
     inputs["CMS_0L"]["fillLeft"]            = True
     inputs["CMS_0L"]["flatten"]             = False
+    inputs["CMS_2L_3L"]                     = {}
+    inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["color"]            = getColor(5)
+    inputs["CMS_2L_3L"]["isDMvsM"]          = True
+    inputs["CMS_2L_3L"]["fillDown"]         = False
+    inputs["CMS_2L_3L"]["fillLeft"]         = False
+    inputs["CMS_2L_3L"]["flatten"]          = False
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
