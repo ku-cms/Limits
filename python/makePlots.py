@@ -127,9 +127,12 @@ def preparePlot(plot_dir, plot_name, input_list, inputs, info):
         # convert to DM vs M data if needed
         if not inputs[key]["isDMvsM"]:
             inputs[key]["data"] = tools.getDMvsMData(inputs[key]["data"])
-        # flatten: set y values to mean y value over a specified range
-        if inputs[key]["flatten"]:
-            inputs[key]["data"] = tools.getFlatData(inputs[key]["data"], info["flatten_x_range"])
+        # smooth = 1: flat smoothing (set y values to mean y value over a specified range)
+        if inputs[key]["smooth"] == 1:
+            inputs[key]["data"] = tools.getFlatData(inputs[key]["data"], info["smooth_x_range"])
+        # smooth = 2: linear smoothing (use x points based on given range and step size; set y values using linear fit of neighbors)
+        if inputs[key]["smooth"] == 2:
+            inputs[key]["data"] = tools.getLinearSmoothData(inputs[key]["data"], info["smooth_x_range"], info["smooth_step"])
     
     # plot
     tools.makeDir(plot_dir)
@@ -153,7 +156,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
-    inputs["ATLAS_Soft_2L"]["flatten"]      = False
+    inputs["ATLAS_Soft_2L"]["smooth"]       = 0
     inputs["ATLAS_2L"]                      = {}
     inputs["ATLAS_2L"]["csv"]               = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
     inputs["ATLAS_2L"]["label"]             = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
@@ -161,7 +164,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["isDMvsM"]           = False
     inputs["ATLAS_2L"]["fillDown"]          = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
-    inputs["ATLAS_2L"]["flatten"]           = True
+    inputs["ATLAS_2L"]["smooth"]            = 2
     inputs["CMS_2L"]                        = {}
     inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L"]["label"]               = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
@@ -169,7 +172,7 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["isDMvsM"]             = False
     inputs["CMS_2L"]["fillDown"]            = False
     inputs["CMS_2L"]["fillLeft"]            = False
-    inputs["CMS_2L"]["flatten"]             = True
+    inputs["CMS_2L"]["smooth"]              = 2
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
@@ -177,7 +180,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
-    inputs["CMS_Preliminary"]["flatten"]    = False
+    inputs["CMS_Preliminary"]["smooth"]     = 0
 
     info = {}
     info["title"]               = "TSlepSlep Limits"
@@ -188,7 +191,12 @@ def makePlotTSlepSlep():
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [110.0, 300.0]
     info["y_lim"]               = [0.0,   100.0]
-    info["flatten_x_range"]     = [0.0, 300.0]   # x range over which to set y values to mean y value
+    info["smooth_x_range"]      = [100,   300]  # x range over which to set y values to mean y value
+    #info["smooth_step"]         = 100           # step size for linear smoothing
+    #info["smooth_step"]         = 50            # step size for linear smoothing
+    info["smooth_step"]         = 25            # step size for linear smoothing
+    #info["smooth_step"]         = 20           # step size for linear smoothing
+    #info["smooth_step"]         = 10           # step size for linear smoothing
     
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
@@ -222,7 +230,7 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]["isDMvsM"]      = True
     inputs["ATLAS_Soft_2L"]["fillDown"]     = True
     inputs["ATLAS_Soft_2L"]["fillLeft"]     = False
-    inputs["ATLAS_Soft_2L"]["flatten"]      = False
+    inputs["ATLAS_Soft_2L"]["smooth"]       = 0
     inputs["CMS_2L_3L"]                     = {}
     inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
@@ -230,7 +238,7 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["isDMvsM"]          = True
     inputs["CMS_2L_3L"]["fillDown"]         = True
     inputs["CMS_2L_3L"]["fillLeft"]         = False
-    inputs["CMS_2L_3L"]["flatten"]          = False
+    inputs["CMS_2L_3L"]["smooth"]           = 0
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
@@ -238,7 +246,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
-    inputs["CMS_Preliminary"]["flatten"]    = False
+    inputs["CMS_Preliminary"]["smooth"]     = 0
     
     info = {}
     info["title"]               = "TChiWZ Limits"
@@ -279,7 +287,7 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["isDMvsM"]           = False
     inputs["ATLAS_0L"]["fillDown"]          = False
     inputs["ATLAS_0L"]["fillLeft"]          = False
-    inputs["ATLAS_0L"]["flatten"]           = False
+    inputs["ATLAS_0L"]["smooth"]            = 0
     inputs["ATLAS_1L"]                      = {}
     inputs["ATLAS_1L"]["csv"]               = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["ATLAS_1L"]["label"]             = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
@@ -287,7 +295,7 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["isDMvsM"]           = True
     inputs["ATLAS_1L"]["fillDown"]          = False
     inputs["ATLAS_1L"]["fillLeft"]          = False
-    inputs["ATLAS_1L"]["flatten"]           = False
+    inputs["ATLAS_1L"]["smooth"]            = 0
     inputs["CMS_0L"]                        = {}
     inputs["CMS_0L"]["csv"]                 = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
     inputs["CMS_0L"]["label"]               = "CMS: Phys. Rev. D 104, 052001 (2021)"
@@ -295,7 +303,7 @@ def makePlotT2ttC():
     inputs["CMS_0L"]["isDMvsM"]             = True
     inputs["CMS_0L"]["fillDown"]            = True
     inputs["CMS_0L"]["fillLeft"]            = True
-    inputs["CMS_0L"]["flatten"]             = False
+    inputs["CMS_0L"]["smooth"]              = 0
     inputs["CMS_2L_3L"]                     = {}
     inputs["CMS_2L_3L"]["csv"]              = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L_3L"]["label"]            = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
@@ -303,7 +311,7 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]["isDMvsM"]          = True
     inputs["CMS_2L_3L"]["fillDown"]         = False
     inputs["CMS_2L_3L"]["fillLeft"]         = False
-    inputs["CMS_2L_3L"]["flatten"]          = False
+    inputs["CMS_2L_3L"]["smooth"]           = 0
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
@@ -311,7 +319,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
     inputs["CMS_Preliminary"]["fillDown"]   = False
     inputs["CMS_Preliminary"]["fillLeft"]   = False
-    inputs["CMS_Preliminary"]["flatten"]    = False
+    inputs["CMS_Preliminary"]["smooth"]     = 0
     
     info = {}
     info["title"]               = "T2ttC Limits"
