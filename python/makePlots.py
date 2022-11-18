@@ -142,9 +142,6 @@ def makePlotTSlepSlep():
     plot_name   = "TSlepSlep_Limits"
 
     # use list to define order when plotting
-    #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_Preliminary"]
-    #input_list  = ["CMS_Preliminary"]
-    #input_list  = ["CMS_Preliminary", "CMS_2L"]
     input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     
     # TSlepSlep
@@ -187,8 +184,6 @@ def makePlotTSlepSlep():
     info["proc_label"]          = r"$p p \to \tilde{\ell}_{\mathrm{L,R}}^{+} \tilde{\ell}_{\mathrm{L,R}}^{-}$, $\tilde{\ell} \to \ell \tilde{\chi}_{1}^{0}$, $\ell \in [e, \mu]$"
     info["x_label"]             = r"$m \left(\tilde{\ell}_{\mathrm{L,R}}\right)$ [GeV]"
     info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L,R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    #info["proc_label_x_pos"]    = 0.50  # process label x position as fraction in range [0.0, 1.0]
-    #info["proc_label_y_pos"]    = 0.65  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [110.0, 300.0]
@@ -216,8 +211,6 @@ def makePlotTChiWZ():
     plot_name   = "TChiWZ_Limits"
     
     # use list to define order when plotting
-    #input_list  = ["ATLAS_Soft_2L", "CMS_Preliminary"]
-    #input_list  = ["CMS_Preliminary", "CMS_2L_3L"]
     input_list  = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
     
     # TChiWZ
@@ -252,8 +245,6 @@ def makePlotTChiWZ():
     info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}$ (Wino); $\tilde{\chi}_{2}^{0} \to Z^{*} \tilde{\chi}_{1}^{0}$, $\tilde{\chi}_{1}^{\pm} \to W^{*} \tilde{\chi}_{1}^{0}$"
     info["x_label"]             = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    #info["proc_label_x_pos"]    = 0.40  # process label x position as fraction in range [0.0, 1.0]
-    #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [120.0, 350.0]
@@ -277,8 +268,6 @@ def makePlotT2ttC():
     plot_name   = "T2ttC_Limits"
     
     # use list to define order when plotting
-    #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_Preliminary"]
-    #input_list  = ["CMS_Preliminary", "CMS_0L"]
     input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
     
     # T2ttC
@@ -329,8 +318,6 @@ def makePlotT2ttC():
     info["proc_label"]          = r"$p p \to \tilde{t} \bar{\tilde{t}}$; $\tilde{t} \to b f \bar{f}' \tilde{\chi}_{1}^{0}$"
     info["x_label"]             = r"$m \left(\tilde{t}\right)$ [GeV]" 
     info["y_label"]             = r"$\Delta m \left(\tilde{t}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
-    #info["proc_label_x_pos"]    = 0.70  # process label x position as fraction in range [0.0, 1.0]
-    #info["proc_label_y_pos"]    = 0.75  # process label y position as fraction in range [0.0, 1.0]
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [300.0, 900.0]
