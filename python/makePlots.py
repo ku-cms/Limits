@@ -7,13 +7,24 @@ import numpy as np
 
 # Get color using index
 def getColor(index):
+    # version 1
+    #colors = {
+    #    1 : "xkcd:pinkish purple",
+    #    2 : "xkcd:tangerine",
+    #    3 : "xkcd:apple green",
+    #    4 : "xkcd:bright blue",
+    #    5 : "xkcd:light red"
+    #}
+    
+    # version 2
     colors = {
-        1 : "xkcd:pinkish purple",
-        2 : "xkcd:tangerine",
-        3 : "xkcd:apple green",
-        4 : "xkcd:bright blue",
-        5 : "xkcd:light red"
+        1 : "xkcd:pale purple",
+        2 : "xkcd:dusky rose",
+        3 : "xkcd:soft green",
+        4 : "xkcd:sky",
+        5 : "xkcd:dull pink"
     }
+    
     #colors = {
     #    1 : "xkcd:pinkish",
     #    2 : "xkcd:pale orange",
@@ -21,6 +32,7 @@ def getColor(index):
     #    4 : "xkcd:dark sky blue",
     #    5 : "xkcd:light red"
     #}
+    
     #colors = {
     #    1 : "xkcd:light red",
     #    2 : "xkcd:light orange",
@@ -164,7 +176,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["isDMvsM"]           = False
     inputs["ATLAS_2L"]["fillDown"]          = False
     inputs["ATLAS_2L"]["fillLeft"]          = False
-    inputs["ATLAS_2L"]["smooth"]            = 2
+    inputs["ATLAS_2L"]["smooth"]            = 0
     inputs["CMS_2L"]                        = {}
     inputs["CMS_2L"]["csv"]                 = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L"]["label"]               = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
@@ -172,7 +184,7 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["isDMvsM"]             = False
     inputs["CMS_2L"]["fillDown"]            = False
     inputs["CMS_2L"]["fillLeft"]            = False
-    inputs["CMS_2L"]["smooth"]              = 2
+    inputs["CMS_2L"]["smooth"]              = 0
     inputs["CMS_Preliminary"]               = {}
     inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
