@@ -22,7 +22,7 @@ def getColor(index):
         2 : "xkcd:dusky rose",
         3 : "xkcd:soft green",
         4 : "xkcd:sky",
-        5 : "xkcd:dull pink"
+        5 : "xkcd:dusty pink"
     }
     
     #colors = {
@@ -54,10 +54,13 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     proc_label_y_pos    = info["proc_label_y_pos"]
     x_lim               = info["x_lim"]
     y_lim               = info["y_lim"]
-    alpha_line          = 0.0
-    alpha_fill          = 1.0
+    # set alpha values
+    #alpha_line          = 0.0
+    #alpha_fill          = 1.0
     #alpha_line          = 1.0
     #alpha_fill          = 0.0
+    alpha_line          = 0.5 
+    alpha_fill          = 0.5 
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
