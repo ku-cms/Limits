@@ -219,8 +219,8 @@ def makePlotTSlepSlep():
     info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L,R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [110.0, 300.0]
-    info["y_lim"]               = [0.0,   100.0]
+    info["x_lim"]               = [90.0, 350.0]
+    info["y_lim"]               = [1.0,  100.0]
     info["legend_loc"]          = "upper right"
     info["legend_order"]        = legend_order
     info["smooth_x_range"]      = [100,   300]  # x range over which to set y values to mean y value
@@ -229,6 +229,9 @@ def makePlotTSlepSlep():
     info["smooth_step"]         = 25            # step size for linear smoothing
     #info["smooth_step"]         = 20           # step size for linear smoothing
     #info["smooth_step"]         = 10           # step size for linear smoothing
+    
+    #info["x_lim"]               = [110.0, 300.0]
+    #info["y_lim"]               = [0.0,   100.0]
     
     #info["x_lim"]   = [100.0, 400.0]
     #info["y_lim"]   = [0.0,   100.0]
