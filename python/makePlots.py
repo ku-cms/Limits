@@ -55,6 +55,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     x_lim               = info["x_lim"]
     y_lim               = info["y_lim"]
     legend_loc          = info["legend_loc"]
+    legend_order        = info["legend_order"]
     # set alpha values
     #alpha_line          = 0.0
     #alpha_fill          = 1.0
@@ -110,8 +111,13 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     ax.text(energy_label_x, energy_label_y, energy_label, fontsize=label_font_size)
     # label for process
     ax.text(proc_label_x, proc_label_y, proc_label, fontsize=label_font_size)
-    # legend 
-    legend = ax.legend(loc=legend_loc, framealpha=0.9, prop={'size': legend_font_size})
+    
+    # legend
+    handles, labels = ax.get_legend_handles_labels()
+    # set legend order
+    handles_ordered = [handles[i] for i in legend_order]
+    labels_ordered  = [labels[i]  for i in legend_order]
+    legend = ax.legend(handles_ordered, labels_ordered, loc=legend_loc, framealpha=0.9, prop={'size': legend_font_size})
     
     # set alpha for legend entries
     for handle in legend.legendHandles:
@@ -160,9 +166,14 @@ def makePlotTSlepSlep():
     plot_dir    = "plots"
     plot_name   = "TSlepSlep_Limits"
 
-    # use list to define order when plotting
-    input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
-    #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary"]
+    # input list:   define order when plotting
+    # legend order: define order in legend
+    
+    #input_list = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
+    #legend_order = [0, 1, 2, 3]
+    
+    input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary"]
+    legend_order = [0, 1, 2, 3]
     
     # TSlepSlep
     inputs                                  = {}
@@ -209,6 +220,7 @@ def makePlotTSlepSlep():
     info["x_lim"]               = [110.0, 300.0]
     info["y_lim"]               = [0.0,   100.0]
     info["legend_loc"]          = "upper right"
+    info["legend_order"]        = legend_order
     info["smooth_x_range"]      = [100,   300]  # x range over which to set y values to mean y value
     #info["smooth_step"]         = 100           # step size for linear smoothing
     #info["smooth_step"]         = 50            # step size for linear smoothing
@@ -236,9 +248,14 @@ def makePlotTChiWZ():
     plot_dir    = "plots"
     plot_name   = "TChiWZ_Limits"
     
-    # use list to define order when plotting
-    input_list  = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
-    #input_list  = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary"]
+    # input list:   define order when plotting
+    # legend order: define order in legend
+    
+    input_list = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
+    legend_order = [2, 1, 0]
+    
+    #input_list = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary"]
+    #legend_order = [0, 1, 2]
     
     # TChiWZ
     inputs                                  = {}
@@ -277,6 +294,7 @@ def makePlotTChiWZ():
     info["x_lim"]               = [120.0, 350.0]
     info["y_lim"]               = [3.0,   50.0]
     info["legend_loc"]          = "upper left"
+    info["legend_order"]        = legend_order
     
     #info["x_lim"]   = [0.0, 600.0]
     #info["y_lim"]   = [0.0, 50.0]
@@ -295,9 +313,14 @@ def makePlotT2ttC():
     plot_dir    = "plots"
     plot_name   = "T2ttC_Limits"
     
-    # use list to define order when plotting
-    input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
-    #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary"]
+    # input list:   define order when plotting
+    # legend order: define order in legend
+    
+    input_list = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
+    legend_order = [2, 3, 1, 4, 0]
+    
+    #input_list = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary"]
+    #legend_order = [0, 1, 2, 3, 4]
     
     # T2ttC
     inputs                                  = {}
@@ -352,6 +375,7 @@ def makePlotT2ttC():
     info["x_lim"]               = [300.0, 900.0]
     info["y_lim"]               = [10.0,  80.0]
     info["legend_loc"]          = "upper left"
+    info["legend_order"]        = legend_order
     
     #info["x_lim"]   = [200.0, 800.0]
     #info["y_lim"]   = [10.0,  210.0]
