@@ -61,7 +61,9 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     #alpha_fill          = 1.0
     #alpha_line          = 1.0
     #alpha_fill          = 0.0
-    alpha_line          = 0.5 
+    #alpha_line          = 0.5 
+    #alpha_fill          = 0.5 
+    alpha_line          = 1.0
     alpha_fill          = 0.5 
 
     fig, ax = plt.subplots(figsize=(6, 6))
