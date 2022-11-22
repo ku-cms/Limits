@@ -161,6 +161,7 @@ def makePlotTSlepSlep():
 
     # use list to define order when plotting
     input_list  = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
+    #input_list  = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary"]
     
     # TSlepSlep
     inputs                                  = {}
@@ -235,6 +236,7 @@ def makePlotTChiWZ():
     
     # use list to define order when plotting
     input_list  = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
+    #input_list  = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary"]
     
     # TChiWZ
     inputs                                  = {}
@@ -292,6 +294,7 @@ def makePlotT2ttC():
     
     # use list to define order when plotting
     input_list  = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
+    #input_list  = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary"]
     
     # T2ttC
     inputs                                  = {}
