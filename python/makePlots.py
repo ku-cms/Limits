@@ -268,11 +268,11 @@ def makePlotTChiWZ():
     # input list:   define order when plotting
     # legend order: define order in legend
     
-    input_list = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
-    legend_order = [2, 1, 0]
+    #input_list = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
+    #legend_order = [2, 1, 0]
     
-    #input_list = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary"]
-    #legend_order = [0, 1, 2]
+    input_list = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary"]
+    legend_order = [0, 1, 2]
     
     # TChiWZ
     inputs                                  = {}
@@ -339,11 +339,11 @@ def makePlotT2ttC():
     # input list:   define order when plotting
     # legend order: define order in legend
     
-    input_list = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
-    legend_order = [2, 3, 1, 4, 0]
+    #input_list = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
+    #legend_order = [2, 3, 1, 4, 0]
     
-    #input_list = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary"]
-    #legend_order = [0, 1, 2, 3, 4]
+    input_list = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary"]
+    legend_order = [0, 1, 2, 3, 4]
     
     # T2ttC
     inputs                                  = {}
