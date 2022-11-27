@@ -76,6 +76,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         data        = inputs[key]["data"]
         label       = inputs[key]["label"]
         color       = inputs[key]["color"]
+        line_style  = inputs[key]["line_style"]
         alpha_line  = inputs[key]["alpha_line"]
         alpha_fill  = inputs[key]["alpha_fill"]
         fillDown    = inputs[key]["fillDown"]
@@ -83,7 +84,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         
         x_vals, y_vals = tools.getXYVals(data)
         
-        plt.plot(x_vals, y_vals, label=label, color=color, alpha=alpha_line)
+        plt.plot(x_vals, y_vals, label=label, color=color, linestyle=line_style, alpha=alpha_line)
         
         # specify vertical limits for fill
         if fillDown:
@@ -187,6 +188,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["csv"]                  = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]                = getColor(1)
+    inputs["ATLAS_Soft_2L"]["line_style"]           = "-"
     inputs["ATLAS_Soft_2L"]["alpha_line"]           = 0.0
     inputs["ATLAS_Soft_2L"]["alpha_fill"]           = 0.5
     inputs["ATLAS_Soft_2L"]["isDMvsM"]              = True
@@ -197,6 +199,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["csv"]                       = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
     inputs["ATLAS_2L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
     inputs["ATLAS_2L"]["color"]                     = getColor(2)
+    inputs["ATLAS_2L"]["line_style"]                = "-"
     inputs["ATLAS_2L"]["alpha_line"]                = 0.0
     inputs["ATLAS_2L"]["alpha_fill"]                = 0.5
     inputs["ATLAS_2L"]["isDMvsM"]                   = False
@@ -207,6 +210,7 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["csv"]                         = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L"]["label"]                       = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
     inputs["CMS_2L"]["color"]                       = getColor(4)
+    inputs["CMS_2L"]["line_style"]                  = "-"
     inputs["CMS_2L"]["alpha_line"]                  = 0.0
     inputs["CMS_2L"]["alpha_fill"]                  = 0.5
     inputs["CMS_2L"]["isDMvsM"]                     = False
@@ -218,6 +222,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["csv"]                = "{0}/TSlepSlep_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
+    inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
     inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
@@ -228,6 +233,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/TSlepSlep_contour_dM_exp_up.csv".format(data_dir)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
+    inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
     inputs["CMS_Preliminary_Up"]["alpha_line"]      = 1.0
     inputs["CMS_Preliminary_Up"]["alpha_fill"]      = 0.0
     inputs["CMS_Preliminary_Up"]["isDMvsM"]         = True
@@ -238,6 +244,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/TSlepSlep_contour_dM_exp_down.csv".format(data_dir)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
+    inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
@@ -301,6 +308,7 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]["csv"]                  = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
     inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
     inputs["ATLAS_Soft_2L"]["color"]                = getColor(1)
+    inputs["ATLAS_Soft_2L"]["line_style"]           = "-"
     inputs["ATLAS_Soft_2L"]["alpha_line"]           = 0.0
     inputs["ATLAS_Soft_2L"]["alpha_fill"]           = 0.5
     inputs["ATLAS_Soft_2L"]["isDMvsM"]              = True
@@ -311,6 +319,7 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
     inputs["CMS_2L_3L"]["color"]                    = getColor(4)
+    inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
     inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
     inputs["CMS_2L_3L"]["isDMvsM"]                  = True
@@ -322,6 +331,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]["csv"]                = "{0}/TChiWZ_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
+    inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
     inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
@@ -332,6 +342,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/TChiWZ_contour_dM_exp_up.csv".format(data_dir)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
+    inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
     inputs["CMS_Preliminary_Up"]["alpha_line"]      = 1.0
     inputs["CMS_Preliminary_Up"]["alpha_fill"]      = 0.0
     inputs["CMS_Preliminary_Up"]["isDMvsM"]         = True
@@ -342,6 +353,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/TChiWZ_contour_dM_exp_down.csv".format(data_dir)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
+    inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
@@ -396,6 +408,7 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["csv"]                       = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
     inputs["ATLAS_0L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 737 (2020)"
     inputs["ATLAS_0L"]["color"]                     = getColor(1)
+    inputs["ATLAS_0L"]["line_style"]                = "-"
     inputs["ATLAS_0L"]["alpha_line"]                = 0.0
     inputs["ATLAS_0L"]["alpha_fill"]                = 0.5
     inputs["ATLAS_0L"]["isDMvsM"]                   = False
@@ -406,6 +419,7 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["csv"]                       = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["ATLAS_1L"]["label"]                     = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
     inputs["ATLAS_1L"]["color"]                     = getColor(2)
+    inputs["ATLAS_1L"]["line_style"]                = "-"
     inputs["ATLAS_1L"]["alpha_line"]                = 0.0
     inputs["ATLAS_1L"]["alpha_fill"]                = 0.5
     inputs["ATLAS_1L"]["isDMvsM"]                   = True
@@ -416,6 +430,7 @@ def makePlotT2ttC():
     inputs["CMS_0L"]["csv"]                         = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
     inputs["CMS_0L"]["label"]                       = "CMS: Phys. Rev. D 104, 052001 (2021)"
     inputs["CMS_0L"]["color"]                       = getColor(5)
+    inputs["CMS_0L"]["line_style"]                  = "-"
     inputs["CMS_0L"]["alpha_line"]                  = 0.0
     inputs["CMS_0L"]["alpha_fill"]                  = 0.5
     inputs["CMS_0L"]["isDMvsM"]                     = True
@@ -426,6 +441,7 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
     inputs["CMS_2L_3L"]["color"]                    = getColor(4)
+    inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
     inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
     inputs["CMS_2L_3L"]["isDMvsM"]                  = True
@@ -437,6 +453,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]["csv"]                = "{0}/T2tt_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
+    inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
     inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
@@ -447,6 +464,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/T2tt_contour_dM_exp_up.csv".format(data_dir)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
+    inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
     inputs["CMS_Preliminary_Up"]["alpha_line"]      = 1.0
     inputs["CMS_Preliminary_Up"]["alpha_fill"]      = 0.0
     inputs["CMS_Preliminary_Up"]["isDMvsM"]         = True
@@ -457,6 +475,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/T2tt_contour_dM_exp_down.csv".format(data_dir)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
+    inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
