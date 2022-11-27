@@ -214,7 +214,8 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["fillLeft"]            = False
     inputs["CMS_2L"]["smooth"]              = 0
     inputs["CMS_Preliminary"]               = {}
-    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
+    #inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/TSlepSlep_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["alpha_line"] = 1.0
@@ -297,7 +298,8 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["fillLeft"]         = False
     inputs["CMS_2L_3L"]["smooth"]           = 0
     inputs["CMS_Preliminary"]               = {}
-    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    #inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/TChiWZ_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["alpha_line"] = 1.0
@@ -388,13 +390,14 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]["fillLeft"]         = False
     inputs["CMS_2L_3L"]["smooth"]           = 0
     inputs["CMS_Preliminary"]               = {}
-    inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    #inputs["CMS_Preliminary"]["csv"]        = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]        = "{0}/T2tt_contour_dM_exp_central.csv".format(data_dir)
     inputs["CMS_Preliminary"]["label"]      = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]      = getColor(3)
     inputs["CMS_Preliminary"]["alpha_line"] = 1.0
     inputs["CMS_Preliminary"]["alpha_fill"] = 0.5
     inputs["CMS_Preliminary"]["isDMvsM"]    = True
-    inputs["CMS_Preliminary"]["fillDown"]   = False
+    inputs["CMS_Preliminary"]["fillDown"]   = True
     inputs["CMS_Preliminary"]["fillLeft"]   = False
     inputs["CMS_Preliminary"]["smooth"]     = 0
     
