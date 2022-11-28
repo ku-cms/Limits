@@ -263,9 +263,9 @@ def makePlotTSlepSlep():
 
     info = {}
     info["title"]               = "TSlepSlep Limits"
-    info["proc_label"]          = r"$p p \to \tilde{\ell}_{\mathrm{L,R}}^{+} \tilde{\ell}_{\mathrm{L,R}}^{-}$, $\tilde{\ell} \to \ell \tilde{\chi}_{1}^{0}$, $\ell \in [e, \mu]$"
-    info["x_label"]             = r"$m \left(\tilde{\ell}_{\mathrm{L,R}}\right)$ [GeV]"
-    info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L,R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
+    info["proc_label"]          = r"$p p \to \tilde{\ell}_{\mathrm{L/R}}^{+} \tilde{\ell}_{\mathrm{L/R}}^{-}$, $\tilde{\ell} \to \ell \tilde{\chi}_{1}^{0}$, $\ell \in [e, \mu]$"
+    info["x_label"]             = r"$m \left(\tilde{\ell}_{\mathrm{L/R}}\right)$ [GeV]"
+    info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L/R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [90.0, 350.0]
