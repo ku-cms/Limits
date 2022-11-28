@@ -17,9 +17,18 @@ def getColor(index):
     #}
     
     # version 2
+    #colors = {
+    #    1 : "xkcd:pale purple",
+    #    2 : "xkcd:dusky rose",
+    #    3 : "xkcd:soft green",
+    #    4 : "xkcd:sky",
+    #    5 : "xkcd:dusty pink"
+    #}
+    
+    # version 3
     colors = {
         1 : "xkcd:pale purple",
-        2 : "xkcd:dusky rose",
+        2 : "xkcd:pale yellow",
         3 : "xkcd:soft green",
         4 : "xkcd:sky",
         5 : "xkcd:dusty pink"
@@ -84,7 +93,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         
         x_vals, y_vals = tools.getXYVals(data)
         
-        plt.plot(x_vals, y_vals, label=label, color=color, linestyle=line_style, alpha=alpha_line)
+        plt.plot(x_vals, y_vals, label=label, color=color, linewidth=3, linestyle=line_style, alpha=alpha_line)
         
         # specify vertical limits for fill
         if fillDown:
@@ -260,7 +269,7 @@ def makePlotTSlepSlep():
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [90.0, 350.0]
-    info["y_lim"]               = [1.0,  100.0]
+    info["y_lim"]               = [3.0,  100.0]
     info["legend_loc"]          = "upper right"
     info["legend_order"]        = legend_order
     info["smooth_x_range"]      = [100,   300]  # x range over which to set y values to mean y value
@@ -491,7 +500,7 @@ def makePlotT2ttC():
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [300.0, 900.0]
-    info["y_lim"]               = [10.0,  80.0]
+    info["y_lim"]               = [10.001, 80.0]
     info["legend_loc"]          = "upper left"
     info["legend_order"]        = legend_order
     
