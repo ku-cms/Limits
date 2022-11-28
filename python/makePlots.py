@@ -524,10 +524,93 @@ def makePlotT2ttC():
     
     preparePlot(plot_dir, plot_name, input_list, inputs, info)
 
+# Create plot for Higgsino
+def makePlotHiggsino():
+    data_dir    = "data/Higgsino"
+    plot_dir    = "plots"
+    plot_name   = "Higgsino_Limits"
+    
+    # input list:   define order when plotting
+    # legend order: define order in legend
+    
+    input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
+    legend_order = [0, 1, 2, 3]
+    
+    # TODO: Update KU SUSY results: use Higgsino limits instead of TChiWZ limits
+    ku_susy_dir       = "data/TChiWZ"
+    #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
+    ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    
+    # Higgsino
+    inputs                                          = {}
+    inputs["CMS_2L_3L"]                             = {}
+    inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_Higgsino_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
+    inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["color"]                    = getColor(4)
+    inputs["CMS_2L_3L"]["line_style"]               = "-"
+    inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
+    inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
+    inputs["CMS_2L_3L"]["isDMvsM"]                  = True
+    inputs["CMS_2L_3L"]["fillDown"]                 = True
+    inputs["CMS_2L_3L"]["fillLeft"]                 = False
+    inputs["CMS_2L_3L"]["smooth"]                   = 0
+    inputs["CMS_Preliminary"]                       = {}
+    #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
+    #inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(ku_susy_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["color"]              = getColor(3)
+    inputs["CMS_Preliminary"]["line_style"]         = "-"
+    inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
+    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
+    inputs["CMS_Preliminary"]["isDMvsM"]            = True
+    inputs["CMS_Preliminary"]["fillDown"]           = True
+    inputs["CMS_Preliminary"]["fillLeft"]           = False
+    inputs["CMS_Preliminary"]["smooth"]             = 0
+    inputs["CMS_Preliminary_Up"]                    = {}
+    #inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/{1}_up.csv".format(data_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/{1}_up.csv".format(ku_susy_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
+    inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
+    inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
+    inputs["CMS_Preliminary_Up"]["alpha_line"]      = 1.0
+    inputs["CMS_Preliminary_Up"]["alpha_fill"]      = 0.0
+    inputs["CMS_Preliminary_Up"]["isDMvsM"]         = True
+    inputs["CMS_Preliminary_Up"]["fillDown"]        = True
+    inputs["CMS_Preliminary_Up"]["fillLeft"]        = False
+    inputs["CMS_Preliminary_Up"]["smooth"]          = 0
+    inputs["CMS_Preliminary_Down"]                  = {}
+    #inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/{1}_down.csv".format(data_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/{1}_down.csv".format(ku_susy_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
+    inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
+    inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
+    inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
+    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
+    inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
+    inputs["CMS_Preliminary_Down"]["fillDown"]      = True
+    inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
+    inputs["CMS_Preliminary_Down"]["smooth"]        = 0
+    
+    info = {}
+    info["title"]               = "Higgsino Limits"
+    info["proc_label"]          = "process label" 
+    info["x_label"]             = "x label" 
+    info["y_label"]             = "y label"
+    info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
+    info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
+    info["x_lim"]               = [120.0, 400.0]
+    info["y_lim"]               = [3.0,   50.0]
+    info["legend_loc"]          = "upper left"
+    info["legend_order"]        = legend_order
+    
+    preparePlot(plot_dir, plot_name, input_list, inputs, info)
+
 def main():
     makePlotTSlepSlep()
     makePlotTChiWZ()
     makePlotT2ttC()
+    makePlotHiggsino()
 
 if __name__ == "__main__":
     main()
