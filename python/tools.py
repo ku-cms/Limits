@@ -86,10 +86,16 @@ def getXYVals(data):
 # takes a csv file as input and outputs data in a matrix
 def getData(input_file):
     data = []
-    with open(input_file, "r") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            data.append(row)
+    # check if file exists
+    if os.path.isfile(input_file):
+        # open file
+        with open(input_file, "r") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                data.append(row)
+    else:
+        # print error
+        print("ERROR: The file '{0}' does not exist.".format(input_file))
     return data
 
 # return cleaned data:
