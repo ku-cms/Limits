@@ -190,6 +190,9 @@ def makePlotTSlepSlep():
     
     input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
     legend_order = [0, 1, 2, 3, 4, 5]
+
+    #ku_susy_base_name = "TSlepSlep_contour_2022_11_08_dM_exp"
+    ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
     
     # TSlepSlep
     inputs                                          = {}
@@ -228,7 +231,7 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["smooth"]                      = 0
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
-    inputs["CMS_Preliminary"]["csv"]                = "{0}/TSlepSlep_contour_2022_11_08_dM_exp_central.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
@@ -239,7 +242,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["fillLeft"]           = False
     inputs["CMS_Preliminary"]["smooth"]             = 0
     inputs["CMS_Preliminary_Up"]                    = {}
-    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/TSlepSlep_contour_2022_11_08_dM_exp_up.csv".format(data_dir)
+    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/{1}_up.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
     inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
@@ -250,7 +253,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Up"]["fillLeft"]        = False
     inputs["CMS_Preliminary_Up"]["smooth"]          = 0
     inputs["CMS_Preliminary_Down"]                  = {}
-    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/TSlepSlep_contour_2022_11_08_dM_exp_down.csv".format(data_dir)
+    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/{1}_down.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
@@ -311,6 +314,9 @@ def makePlotTChiWZ():
     input_list = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
     legend_order = [0, 1, 2, 3, 4]
     
+    #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
+    ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    
     # TChiWZ
     inputs                                          = {}
     inputs["ATLAS_Soft_2L"]                         = {}
@@ -337,7 +343,7 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["smooth"]                   = 0
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_Preliminary"]["csv"]                = "{0}/TChiWZ_contour_2022_11_08_dM_exp_central.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
@@ -348,7 +354,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]["fillLeft"]           = False
     inputs["CMS_Preliminary"]["smooth"]             = 0
     inputs["CMS_Preliminary_Up"]                    = {}
-    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/TChiWZ_contour_2022_11_08_dM_exp_up.csv".format(data_dir)
+    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/{1}_up.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
     inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
@@ -359,7 +365,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary_Up"]["fillLeft"]        = False
     inputs["CMS_Preliminary_Up"]["smooth"]          = 0
     inputs["CMS_Preliminary_Down"]                  = {}
-    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/TChiWZ_contour_2022_11_08_dM_exp_down.csv".format(data_dir)
+    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/{1}_down.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
@@ -411,6 +417,9 @@ def makePlotT2ttC():
     input_list = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
     legend_order = [0, 1, 2, 3, 4, 5, 6]
     
+    #ku_susy_base_name = "T2tt_contour_2022_11_08_dM_exp"
+    ku_susy_base_name = "T2tt_contour_2022_11_24_dM_exp"
+    
     # T2ttC
     inputs                                          = {}
     inputs["ATLAS_0L"]                              = {}
@@ -459,7 +468,7 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]["smooth"]                   = 0
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_Preliminary"]["csv"]                = "{0}/T2tt_contour_2022_11_08_dM_exp_central.csv".format(data_dir)
+    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
@@ -470,7 +479,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]["fillLeft"]           = False
     inputs["CMS_Preliminary"]["smooth"]             = 0
     inputs["CMS_Preliminary_Up"]                    = {}
-    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/T2tt_contour_2022_11_08_dM_exp_up.csv".format(data_dir)
+    inputs["CMS_Preliminary_Up"]["csv"]             = "{0}/{1}_up.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Up"]["label"]           = "CMS Preliminary (Expected Up)"
     inputs["CMS_Preliminary_Up"]["color"]           = getColor(3)
     inputs["CMS_Preliminary_Up"]["line_style"]      = "--"
@@ -481,7 +490,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary_Up"]["fillLeft"]        = False
     inputs["CMS_Preliminary_Up"]["smooth"]          = 0
     inputs["CMS_Preliminary_Down"]                  = {}
-    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/T2tt_contour_2022_11_08_dM_exp_down.csv".format(data_dir)
+    inputs["CMS_Preliminary_Down"]["csv"]           = "{0}/{1}_down.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Down"]["label"]         = "CMS Preliminary (Expected Down)"
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
