@@ -311,8 +311,8 @@ def makePlotTChiWZ():
     #input_list = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
     #legend_order = [2, 1, 0]
     
-    input_list = ["ATLAS_Soft_2L", "CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1, 2, 3, 4]
+    input_list = ["CMS_2L_3L", "ATLAS_Soft_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
+    legend_order = [1, 0, 2, 3, 4]
     
     #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
     ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
