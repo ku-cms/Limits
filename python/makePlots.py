@@ -594,9 +594,9 @@ def makePlotHiggsino():
     
     info = {}
     info["title"]               = "Higgsino Limits"
-    info["proc_label"]          = "process label" 
-    info["x_label"]             = "x label" 
-    info["y_label"]             = "y label"
+    info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}, \tilde{\chi}_{2}^{0} \tilde{\chi}_{2}^{0}$, $m \left(\tilde{\chi}_{1}^{\pm}\right) = \left(m \left(\tilde{\chi}_{2}^{0}\right) + m \left(\tilde{\chi}_{1}^{0}\right)\right) / 2$"
+    info["x_label"]             = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
+    info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [120.0, 400.0]
