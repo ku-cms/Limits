@@ -204,7 +204,8 @@ def makePlotTSlepSlep():
     inputs                                          = {}
     inputs["ATLAS_Soft_2L"]                         = {}
     inputs["ATLAS_Soft_2L"]["csv"]                  = "{0}/HEPData-ins1767649-v5-Figure_16a_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
+    #inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
+    inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: PRD (2020)"
     inputs["ATLAS_Soft_2L"]["color"]                = getColor(1)
     inputs["ATLAS_Soft_2L"]["line_style"]           = "-"
     inputs["ATLAS_Soft_2L"]["alpha_line"]           = 0.0
@@ -215,7 +216,8 @@ def makePlotTSlepSlep():
     inputs["ATLAS_Soft_2L"]["smooth"]               = 0
     inputs["ATLAS_2L"]                              = {}
     inputs["ATLAS_2L"]["csv"]                       = "{0}/HEPData-ins1750597-v4-Exclusion_contour_Observed_3.csv".format(data_dir)
-    inputs["ATLAS_2L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
+    #inputs["ATLAS_2L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 123 (2020)"
+    inputs["ATLAS_2L"]["label"]                     = "ATLAS: EPJC (2020)"
     inputs["ATLAS_2L"]["color"]                     = getColor(2)
     inputs["ATLAS_2L"]["line_style"]                = "-"
     inputs["ATLAS_2L"]["alpha_line"]                = 0.0
@@ -226,7 +228,8 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["smooth"]                    = 0
     inputs["CMS_2L"]                                = {}
     inputs["CMS_2L"]["csv"]                         = "{0}/CMS_2L_TSlepSlep_Observed_Limit_MvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_2L"]["label"]                       = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
+    #inputs["CMS_2L"]["label"]                       = "CMS: J. High Energ. Phys. 2021, 123 (2021)"
+    inputs["CMS_2L"]["label"]                       = "CMS: JHEP (2021)"
     inputs["CMS_2L"]["color"]                       = getColor(4)
     inputs["CMS_2L"]["line_style"]                  = "-"
     inputs["CMS_2L"]["alpha_line"]                  = 0.0
@@ -330,7 +333,8 @@ def makePlotTChiWZ():
     inputs                                          = {}
     inputs["ATLAS_Soft_2L"]                         = {}
     inputs["ATLAS_Soft_2L"]["csv"]                  = "{0}/HEPData-ins1767649-v5-Figure_14b_Observed.csv".format(data_dir)
-    inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
+    #inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: Phys. Rev. D 101, 052005 (2020)"
+    inputs["ATLAS_Soft_2L"]["label"]                = "ATLAS: PRD (2020)"
     inputs["ATLAS_Soft_2L"]["color"]                = getColor(1)
     inputs["ATLAS_Soft_2L"]["line_style"]           = "-"
     inputs["ATLAS_Soft_2L"]["alpha_line"]           = 0.0
@@ -341,7 +345,8 @@ def makePlotTChiWZ():
     inputs["ATLAS_Soft_2L"]["smooth"]               = 0
     inputs["CMS_2L_3L"]                             = {}
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    #inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["label"]                    = "CMS: JHEP (2022)"
     inputs["CMS_2L_3L"]["color"]                    = getColor(4)
     inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
@@ -436,7 +441,8 @@ def makePlotT2ttC():
     inputs                                          = {}
     inputs["ATLAS_0L"]                              = {}
     inputs["ATLAS_0L"]["csv"]                       = "{0}/HEPData-ins1793461-v2-stop_obs.csv".format(data_dir)
-    inputs["ATLAS_0L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 737 (2020)"
+    #inputs["ATLAS_0L"]["label"]                     = "ATLAS: Eur. Phys. J. C 80, 737 (2020)"
+    inputs["ATLAS_0L"]["label"]                     = "ATLAS: EPJC (2020)"
     inputs["ATLAS_0L"]["color"]                     = getColor(1)
     inputs["ATLAS_0L"]["line_style"]                = "-"
     inputs["ATLAS_0L"]["alpha_line"]                = 0.0
@@ -447,7 +453,8 @@ def makePlotT2ttC():
     inputs["ATLAS_0L"]["smooth"]                    = 0
     inputs["ATLAS_1L"]                              = {}
     inputs["ATLAS_1L"]["csv"]                       = "{0}/ATLAS_1L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["ATLAS_1L"]["label"]                     = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
+    #inputs["ATLAS_1L"]["label"]                     = "ATLAS: J. High Energ. Phys. 2021, 174 (2021)"
+    inputs["ATLAS_1L"]["label"]                     = "ATLAS: JHEP (2021)"
     inputs["ATLAS_1L"]["color"]                     = getColor(2)
     inputs["ATLAS_1L"]["line_style"]                = "-"
     inputs["ATLAS_1L"]["alpha_line"]                = 0.0
@@ -458,7 +465,8 @@ def makePlotT2ttC():
     inputs["ATLAS_1L"]["smooth"]                    = 0
     inputs["CMS_0L"]                                = {}
     inputs["CMS_0L"]["csv"]                         = "{0}/HEPData-ins1849522-v1-Figure_09-a_Observed_Lines_v1p1.csv".format(data_dir)
-    inputs["CMS_0L"]["label"]                       = "CMS: Phys. Rev. D 104, 052001 (2021)"
+    #inputs["CMS_0L"]["label"]                       = "CMS: Phys. Rev. D 104, 052001 (2021)"
+    inputs["CMS_0L"]["label"]                       = "CMS: PRD (2021)"
     inputs["CMS_0L"]["color"]                       = getColor(5)
     inputs["CMS_0L"]["line_style"]                  = "-"
     inputs["CMS_0L"]["alpha_line"]                  = 0.0
@@ -469,7 +477,8 @@ def makePlotT2ttC():
     inputs["CMS_0L"]["smooth"]                      = 0
     inputs["CMS_2L_3L"]                             = {}
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    #inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["label"]                    = "CMS: JHEP (2022)"
     inputs["CMS_2L_3L"]["color"]                    = getColor(4)
     inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
@@ -560,7 +569,8 @@ def makePlotHiggsino():
     inputs                                          = {}
     inputs["CMS_2L_3L"]                             = {}
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_Higgsino_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
-    inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    #inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
+    inputs["CMS_2L_3L"]["label"]                    = "CMS: JHEP (2022)"
     inputs["CMS_2L_3L"]["color"]                    = getColor(4)
     inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
