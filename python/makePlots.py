@@ -7,33 +7,7 @@ import numpy as np
 
 # Get color using index
 def getColor(index):
-    # version 1
-    #colors = {
-    #    1 : "xkcd:pinkish purple",
-    #    2 : "xkcd:tangerine",
-    #    3 : "xkcd:apple green",
-    #    4 : "xkcd:bright blue",
-    #    5 : "xkcd:light red"
-    #}
-    
-    # version 2
-    #colors = {
-    #    1 : "xkcd:pale purple",
-    #    2 : "xkcd:dusky rose",
-    #    3 : "xkcd:soft green",
-    #    4 : "xkcd:sky",
-    #    5 : "xkcd:dusty pink"
-    #}
-    
-    # version 3
-    colors = {
-        1 : "xkcd:pale purple",
-        2 : "xkcd:pale yellow",
-        3 : "xkcd:soft green",
-        4 : "xkcd:sky",
-        5 : "xkcd:dusty pink"
-    }
-    
+    # v1
     #colors = {
     #    1 : "xkcd:pinkish",
     #    2 : "xkcd:pale orange",
@@ -42,6 +16,7 @@ def getColor(index):
     #    5 : "xkcd:light red"
     #}
     
+    # v2
     #colors = {
     #    1 : "xkcd:light red",
     #    2 : "xkcd:light orange",
@@ -49,6 +24,34 @@ def getColor(index):
     #    4 : "xkcd:azure",
     #    5 : "xkcd:lavender"
     #}
+    
+    # v3
+    #colors = {
+    #    1 : "xkcd:pinkish purple",
+    #    2 : "xkcd:tangerine",
+    #    3 : "xkcd:apple green",
+    #    4 : "xkcd:bright blue",
+    #    5 : "xkcd:light red"
+    #}
+    
+    # v4
+    #colors = {
+    #    1 : "xkcd:pale purple",
+    #    2 : "xkcd:dusky rose",
+    #    3 : "xkcd:soft green",
+    #    4 : "xkcd:sky",
+    #    5 : "xkcd:dusty pink"
+    #}
+    
+    # v5
+    colors = {
+        1 : "xkcd:pale purple",
+        2 : "xkcd:canary",
+        3 : "xkcd:soft green",
+        4 : "xkcd:sky",
+        5 : "xkcd:dusty pink"
+    }
+    
     return colors[index]
 
 # Create plot
@@ -184,6 +187,9 @@ def makePlotTSlepSlep():
 
     # input list:   define order when plotting
     # legend order: define order in legend
+    # for +/- 1 sigma expected curves:
+    # - "up" is the worse (lower) limit
+    # - "down" is the better (higher) limit
     
     #input_list = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     #legend_order = [0, 1, 2, 3]
@@ -236,7 +242,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
-    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
+    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.0
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
     inputs["CMS_Preliminary"]["fillDown"]           = True
     inputs["CMS_Preliminary"]["fillLeft"]           = False
@@ -258,7 +264,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
-    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
+    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
     inputs["CMS_Preliminary_Down"]["fillDown"]      = True
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
@@ -307,6 +313,9 @@ def makePlotTChiWZ():
     
     # input list:   define order when plotting
     # legend order: define order in legend
+    # for +/- 1 sigma expected curves:
+    # - "up" is the worse (lower) limit
+    # - "down" is the better (higher) limit
     
     #input_list = ["CMS_Preliminary", "CMS_2L_3L", "ATLAS_Soft_2L"]
     #legend_order = [2, 1, 0]
@@ -339,7 +348,7 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
     inputs["CMS_2L_3L"]["isDMvsM"]                  = True
     inputs["CMS_2L_3L"]["fillDown"]                 = True
-    inputs["CMS_2L_3L"]["fillLeft"]                 = False
+    inputs["CMS_2L_3L"]["fillLeft"]                 = True
     inputs["CMS_2L_3L"]["smooth"]                   = 0
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
@@ -348,7 +357,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
-    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
+    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.0
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
     inputs["CMS_Preliminary"]["fillDown"]           = True
     inputs["CMS_Preliminary"]["fillLeft"]           = False
@@ -370,7 +379,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
-    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
+    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
     inputs["CMS_Preliminary_Down"]["fillDown"]      = True
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
@@ -383,7 +392,7 @@ def makePlotTChiWZ():
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [120.0, 400.0]
+    info["x_lim"]               = [100.0, 400.0]
     info["y_lim"]               = [3.0,   50.0]
     info["legend_loc"]          = "upper left"
     info["legend_order"]        = legend_order
@@ -410,6 +419,9 @@ def makePlotT2ttC():
     
     # input list:   define order when plotting
     # legend order: define order in legend
+    # for +/- 1 sigma expected curves:
+    # - "up" is the worse (lower) limit
+    # - "down" is the better (higher) limit
     
     #input_list = ["CMS_Preliminary", "CMS_0L", "ATLAS_0L", "ATLAS_1L", "CMS_2L_3L"]
     #legend_order = [2, 3, 1, 4, 0]
@@ -473,7 +485,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
-    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
+    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.0
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
     inputs["CMS_Preliminary"]["fillDown"]           = True
     inputs["CMS_Preliminary"]["fillLeft"]           = False
@@ -495,7 +507,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
-    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
+    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
     inputs["CMS_Preliminary_Down"]["fillDown"]      = True
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
@@ -532,6 +544,9 @@ def makePlotHiggsino():
     
     # input list:   define order when plotting
     # legend order: define order in legend
+    # for +/- 1 sigma expected curves:
+    # - "up" is the worse (lower) limit
+    # - "down" is the better (higher) limit
     
     input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
     legend_order = [0, 1, 2, 3]
@@ -562,7 +577,7 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
-    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.5
+    inputs["CMS_Preliminary"]["alpha_fill"]         = 0.0
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
     inputs["CMS_Preliminary"]["fillDown"]           = True
     inputs["CMS_Preliminary"]["fillLeft"]           = False
@@ -586,7 +601,7 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary_Down"]["color"]         = getColor(3)
     inputs["CMS_Preliminary_Down"]["line_style"]    = "--"
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
-    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.0
+    inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
     inputs["CMS_Preliminary_Down"]["fillDown"]      = True
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
@@ -599,7 +614,7 @@ def makePlotHiggsino():
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [120.0, 400.0]
+    info["x_lim"]               = [100.0, 400.0]
     info["y_lim"]               = [3.0,   50.0]
     info["legend_loc"]          = "upper left"
     info["legend_order"]        = legend_order
