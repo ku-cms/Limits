@@ -68,17 +68,6 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     y_lim               = info["y_lim"]
     legend_loc          = info["legend_loc"]
     legend_order        = info["legend_order"]
-    # set alpha values
-    #alpha_line          = 0.0
-    #alpha_fill          = 1.0
-    #alpha_line          = 1.0
-    #alpha_fill          = 0.0
-    #alpha_line          = 0.5 
-    #alpha_fill          = 0.5 
-    #alpha_line          = 1.0
-    #alpha_fill          = 0.5 
-    #alpha_line          = 0.0
-    #alpha_fill          = 0.5 
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -195,7 +184,7 @@ def makePlotTSlepSlep():
     #legend_order = [0, 1, 2, 3]
     
     input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1, 2, 3, 4, 5]
+    legend_order = [0, 1, 2, 3]
 
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_08_dM_exp"
     ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
@@ -241,7 +230,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -324,7 +313,7 @@ def makePlotTChiWZ():
     #legend_order = [2, 1, 0]
     
     input_list = ["CMS_2L_3L", "ATLAS_Soft_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [1, 0, 2, 3, 4]
+    legend_order = [1, 0, 2]
     
     #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
     ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
@@ -358,7 +347,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -432,7 +421,7 @@ def makePlotT2ttC():
     #legend_order = [2, 3, 1, 4, 0]
     
     input_list = ["ATLAS_0L", "ATLAS_1L", "CMS_0L", "CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1, 2, 3, 4, 5, 6]
+    legend_order = [0, 1, 2, 3, 4]
     
     #ku_susy_base_name = "T2tt_contour_2022_11_08_dM_exp"
     ku_susy_base_name = "T2tt_contour_2022_11_24_dM_exp"
@@ -490,7 +479,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -558,7 +547,7 @@ def makePlotHiggsino():
     # - "down" is the better (higher) limit
     
     input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1, 2, 3]
+    legend_order = [0, 1]
     
     # TODO: Update KU SUSY results: use Higgsino limits instead of TChiWZ limits
     ku_susy_dir       = "data/TChiWZ"
@@ -583,7 +572,7 @@ def makePlotHiggsino():
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(ku_susy_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary (Expected)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
