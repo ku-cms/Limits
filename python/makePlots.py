@@ -576,8 +576,8 @@ def makePlotHiggsino():
     # - "up" is the worse (lower) limit
     # - "down" is the better (higher) limit
     
-    input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1]
+    input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "CMS_Preliminary_Ext"]
+    legend_order = [0, 1, 4]
     
     # TODO: Update KU SUSY results: use Higgsino limits instead of TChiWZ limits
     ku_susy_dir       = "data/TChiWZ"
@@ -636,6 +636,17 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary_Down"]["fillDown"]      = False
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
+    inputs["CMS_Preliminary_Ext"]                   = {}
+    inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_extended.csv".format(ku_susy_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Ext"]["label"]          = "CMS Predicted $300~\mathrm{fb}^{-1}$"
+    inputs["CMS_Preliminary_Ext"]["color"]          = getColor(7)
+    inputs["CMS_Preliminary_Ext"]["line_style"]     = ":"
+    inputs["CMS_Preliminary_Ext"]["alpha_line"]     = 1.0
+    inputs["CMS_Preliminary_Ext"]["alpha_fill"]     = 0.0
+    inputs["CMS_Preliminary_Ext"]["isDMvsM"]        = True
+    inputs["CMS_Preliminary_Ext"]["fillDown"]       = False
+    inputs["CMS_Preliminary_Ext"]["fillLeft"]       = True
+    inputs["CMS_Preliminary_Ext"]["smooth"]         = 0
     
     info = {}
     info["title"]               = "Higgsino Limits"
@@ -645,7 +656,7 @@ def makePlotHiggsino():
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [100.0, 400.0]
+    info["x_lim"]               = [100.0, 600.0]
     info["y_lim"]               = [3.0,   50.0]
     info["legend_loc"]          = "upper left"
     info["legend_order"]        = legend_order
