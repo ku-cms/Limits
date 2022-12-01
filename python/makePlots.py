@@ -230,7 +230,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -347,7 +347,7 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -479,7 +479,7 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_T2ttC_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -572,7 +572,7 @@ def makePlotHiggsino():
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(ku_susy_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{experiment}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Preliminary ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
