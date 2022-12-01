@@ -49,7 +49,8 @@ def getColor(index):
         2 : "xkcd:canary",
         3 : "xkcd:soft green",
         4 : "xkcd:sky",
-        5 : "xkcd:dusty pink"
+        5 : "xkcd:dusty pink",
+        6 : "silver"
     }
     
     return colors[index]
@@ -183,8 +184,11 @@ def makePlotTSlepSlep():
     #input_list = ["CMS_Preliminary", "ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L"]
     #legend_order = [0, 1, 2, 3]
     
-    input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
-    legend_order = [0, 1, 2, 3]
+    #input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
+    #legend_order = [0, 1, 2, 3]
+    
+    input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "LEP2"]
+    legend_order = [0, 1, 2, 3, 6]
 
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_08_dM_exp"
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
@@ -228,6 +232,17 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["fillDown"]                    = False
     inputs["CMS_2L"]["fillLeft"]                    = False
     inputs["CMS_2L"]["smooth"]                      = 0
+    inputs["LEP2"]                                  = {}
+    inputs["LEP2"]["csv"]                           = "{0}/LEP2_v1p0.csv".format(data_dir)
+    inputs["LEP2"]["label"]                         = "LEP2"
+    inputs["LEP2"]["color"]                         = getColor(6)
+    inputs["LEP2"]["line_style"]                    = "-"
+    inputs["LEP2"]["alpha_line"]                    = 0.0
+    inputs["LEP2"]["alpha_fill"]                    = 1.0
+    inputs["LEP2"]["isDMvsM"]                       = False
+    inputs["LEP2"]["fillDown"]                      = False
+    inputs["LEP2"]["fillLeft"]                      = False
+    inputs["LEP2"]["smooth"]                        = 0
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
