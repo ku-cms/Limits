@@ -187,7 +187,8 @@ def makePlotTSlepSlep():
     legend_order = [0, 1, 2, 3]
 
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_08_dM_exp"
-    ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
+    #ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
+    ku_susy_base_name = "TSlepSlep_contour_2022_11_24_v1p1_dM_exp"
     
     # TSlepSlep
     inputs                                          = {}
@@ -259,7 +260,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
     inputs["CMS_Preliminary_Down"]["fillDown"]      = True
-    inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
+    inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
 
     info = {}
