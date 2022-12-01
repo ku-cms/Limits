@@ -316,7 +316,8 @@ def makePlotTChiWZ():
     legend_order = [1, 0, 2]
     
     #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
-    ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    #ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    ku_susy_base_name = "TChiWZ_contour_2022_11_24_v1p1_dM_exp"
     
     # TChiWZ
     inputs                                          = {}
@@ -375,8 +376,8 @@ def makePlotTChiWZ():
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
-    inputs["CMS_Preliminary_Down"]["fillDown"]      = True
-    inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
+    inputs["CMS_Preliminary_Down"]["fillDown"]      = False
+    inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
     
     info = {}
@@ -553,7 +554,8 @@ def makePlotHiggsino():
     # TODO: Update KU SUSY results: use Higgsino limits instead of TChiWZ limits
     ku_susy_dir       = "data/TChiWZ"
     #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
-    ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    #ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
+    ku_susy_base_name = "TChiWZ_contour_2022_11_24_v1p1_dM_exp"
     
     # Higgsino
     inputs                                          = {}
@@ -603,8 +605,8 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
-    inputs["CMS_Preliminary_Down"]["fillDown"]      = True
-    inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
+    inputs["CMS_Preliminary_Down"]["fillDown"]      = False
+    inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
     
     info = {}
