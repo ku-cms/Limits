@@ -89,15 +89,15 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
         
         # specify vertical limits for fill
         if fillDown:
-            plt.fill_between(x_vals, y_lim[0], y_vals, color=color, alpha=alpha_fill)
+            plt.fill_between(x_vals, y_lim[0], y_vals, color=color, linewidth=0, alpha=alpha_fill)
         else:
-            plt.fill_between(x_vals, y_vals, y_lim[1], color=color, alpha=alpha_fill)
+            plt.fill_between(x_vals, y_vals, y_lim[1], color=color, linewidth=0, alpha=alpha_fill)
         
         if fillLeft:
             x_min  = x_lim[0]
             x_max  = np.min(x_vals)
             x_fill = [x_min, x_max]
-            plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, alpha=alpha_fill)
+            plt.fill_between(x_fill, y_lim[0], y_lim[1], color=color, linewidth=0, alpha=alpha_fill)
         
         print(" - Plotted '{0}'".format(key))
     
@@ -424,7 +424,8 @@ def makePlotT2ttC():
     legend_order = [0, 1, 2, 3, 4]
     
     #ku_susy_base_name = "T2tt_contour_2022_11_08_dM_exp"
-    ku_susy_base_name = "T2tt_contour_2022_11_24_dM_exp"
+    #ku_susy_base_name = "T2tt_contour_2022_11_24_dM_exp"
+    ku_susy_base_name = "T2tt_contour_2022_11_24_v1p1_dM_exp"
     
     # T2ttC
     inputs                                          = {}
@@ -507,8 +508,8 @@ def makePlotT2ttC():
     inputs["CMS_Preliminary_Down"]["alpha_line"]    = 1.0
     inputs["CMS_Preliminary_Down"]["alpha_fill"]    = 0.25
     inputs["CMS_Preliminary_Down"]["isDMvsM"]       = True
-    inputs["CMS_Preliminary_Down"]["fillDown"]      = True
-    inputs["CMS_Preliminary_Down"]["fillLeft"]      = False
+    inputs["CMS_Preliminary_Down"]["fillDown"]      = False
+    inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
     
     info = {}
