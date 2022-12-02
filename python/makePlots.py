@@ -279,7 +279,7 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
     inputs["CMS_Preliminary_Ext"]                   = {}
-    inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_extended.csv".format(data_dir, ku_susy_base_name)
+    inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_extended_v2p1.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Ext"]["label"]          = "CMS Predicted $300~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary_Ext"]["color"]          = getColor(7)
     inputs["CMS_Preliminary_Ext"]["line_style"]     = ":"
@@ -297,7 +297,7 @@ def makePlotTSlepSlep():
     info["y_label"]             = r"$\Delta m \left(\tilde{\ell}_{\mathrm{L/R}}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [90.0, 450.0]
+    info["x_lim"]               = [90.0, 350.0]
     info["y_lim"]               = [3.0,  100.0]
     info["legend_loc"]          = "upper right"
     info["legend_order"]        = legend_order
