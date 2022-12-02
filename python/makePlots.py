@@ -44,14 +44,25 @@ def getColor(index):
     #}
     
     # v5
+    #colors = {
+    #    1 : "xkcd:pale purple",
+    #    2 : "xkcd:canary",
+    #    3 : "xkcd:soft green",
+    #    4 : "xkcd:sky",
+    #    5 : "xkcd:dusty pink",
+    #    6 : "xkcd:grey",
+    #    7 : "xkcd:light red"
+    #}
+    
+    # v5
     colors = {
         1 : "xkcd:pale purple",
         2 : "xkcd:canary",
         3 : "xkcd:soft green",
-        4 : "xkcd:sky",
+        4 : "xkcd:light pink",
         5 : "xkcd:dusty pink",
         6 : "xkcd:grey",
-        7 : "xkcd:light red"
+        7 : "xkcd:sky"
     }
     
     return colors[index]
@@ -70,6 +81,7 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     y_lim               = info["y_lim"]
     legend_loc          = info["legend_loc"]
     legend_order        = info["legend_order"]
+
 
     fig, ax = plt.subplots(figsize=(6, 6))
 
@@ -105,6 +117,13 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     
     # Enable dark mode!
     #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=alpha_fill)
+    
+    # make line for slepton limit
+    coverCorner = True
+    if coverCorner:
+        line_x = [90.0, 100.0]
+        line_y = [90.0, 100.0]
+        plt.fill_between(line_x, line_y, y_lim[1], color="white", linewidth=0, alpha=1.0)
     
     # get coordinates for labels
     x_range = x_lim[1] - x_lim[0]
@@ -188,8 +207,11 @@ def makePlotTSlepSlep():
     #input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down"]
     #legend_order = [0, 1, 2, 3]
     
-    input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "CMS_Preliminary_Ext", "LEP2"]
-    legend_order = [7, 0, 1, 2, 3, 6]
+    #input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "CMS_Preliminary_Ext", "LEP2"]
+    #legend_order = [7, 0, 1, 2, 3, 6]
+    
+    input_list = ["ATLAS_Soft_2L", "ATLAS_2L", "CMS_2L", "CMS_Preliminary_Ext", "CMS_Preliminary", "LEP2"]
+    legend_order = [5, 0, 1, 2, 4, 3]
 
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_08_dM_exp"
     #ku_susy_base_name = "TSlepSlep_contour_2022_11_24_dM_exp"
@@ -216,7 +238,7 @@ def makePlotTSlepSlep():
     inputs["ATLAS_2L"]["color"]                     = getColor(2)
     inputs["ATLAS_2L"]["line_style"]                = "-"
     inputs["ATLAS_2L"]["alpha_line"]                = 0.0
-    inputs["ATLAS_2L"]["alpha_fill"]                = 0.5
+    inputs["ATLAS_2L"]["alpha_fill"]                = 0.70
     inputs["ATLAS_2L"]["isDMvsM"]                   = False
     inputs["ATLAS_2L"]["fillDown"]                  = False
     inputs["ATLAS_2L"]["fillLeft"]                  = False
@@ -228,7 +250,7 @@ def makePlotTSlepSlep():
     inputs["CMS_2L"]["color"]                       = getColor(4)
     inputs["CMS_2L"]["line_style"]                  = "-"
     inputs["CMS_2L"]["alpha_line"]                  = 0.0
-    inputs["CMS_2L"]["alpha_fill"]                  = 0.5
+    inputs["CMS_2L"]["alpha_fill"]                  = 0.70
     inputs["CMS_2L"]["isDMvsM"]                     = False
     inputs["CMS_2L"]["fillDown"]                    = False
     inputs["CMS_2L"]["fillLeft"]                    = False
@@ -247,7 +269,8 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TSlepSlep_Expected_Limit_DMvsM_v3p1.csv".format(data_dir)
     inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Prel. $137~\mathrm{fb}^{-1}$ ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
+    #inputs["CMS_Preliminary"]["label"]              = "CMS Prel. $137~\mathrm{fb}^{-1}$ ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Expected $137~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
@@ -282,9 +305,9 @@ def makePlotTSlepSlep():
     inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_extended_v2p1.csv".format(data_dir, ku_susy_base_name)
     inputs["CMS_Preliminary_Ext"]["label"]          = "CMS Predicted $300~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary_Ext"]["color"]          = getColor(7)
-    inputs["CMS_Preliminary_Ext"]["line_style"]     = ":"
+    inputs["CMS_Preliminary_Ext"]["line_style"]     = "-"
     inputs["CMS_Preliminary_Ext"]["alpha_line"]     = 1.0
-    inputs["CMS_Preliminary_Ext"]["alpha_fill"]     = 0.0
+    inputs["CMS_Preliminary_Ext"]["alpha_fill"]     = 0.25
     inputs["CMS_Preliminary_Ext"]["isDMvsM"]        = True
     inputs["CMS_Preliminary_Ext"]["fillDown"]       = True
     inputs["CMS_Preliminary_Ext"]["fillLeft"]       = True
@@ -576,14 +599,21 @@ def makePlotHiggsino():
     # - "up" is the worse (lower) limit
     # - "down" is the better (higher) limit
     
-    input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "CMS_Preliminary_Ext"]
-    legend_order = [0, 1, 4]
+    #input_list = ["CMS_2L_3L", "CMS_Preliminary", "CMS_Preliminary_Up", "CMS_Preliminary_Down", "CMS_Preliminary_Ext"]
+    #legend_order = [0, 1, 4]
+    
+    input_list = ["CMS_Preliminary_Ext", "CMS_Preliminary"]
+    legend_order = [1, 0]
     
     # TODO: Update KU SUSY results: use Higgsino limits instead of TChiWZ limits
-    ku_susy_dir       = "data/TChiWZ"
+    #ku_susy_dir       = "data/TChiWZ"
+    ku_susy_dir       = "data/Higgsino"
+    
     #ku_susy_base_name = "TChiWZ_contour_2022_11_08_dM_exp"
     #ku_susy_base_name = "TChiWZ_contour_2022_11_24_dM_exp"
-    ku_susy_base_name = "TChiWZ_contour_2022_11_24_v1p1_dM_exp"
+    #ku_susy_base_name = "TChiWZ_contour_2022_11_24_v1p1_dM_exp"
+    ku_susy_base_name = "Higgsino_contour_dM_exp"
+    ku_susy_extend_base_name = "Higgsino_contour_extend_dM_exp"
     
     # Higgsino
     inputs                                          = {}
@@ -602,14 +632,15 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary"]                       = {}
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/KU_SUSY_TChiWZ_Expected_Limit_DMvsM_v1p1.csv".format(data_dir)
     #inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(data_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central.csv".format(ku_susy_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary"]["label"]              = "CMS Prel. $137~\mathrm{fb}^{-1}$ ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
+    inputs["CMS_Preliminary"]["csv"]                = "{0}/{1}_central_v2.csv".format(ku_susy_dir, ku_susy_base_name)
+    #inputs["CMS_Preliminary"]["label"]              = "CMS Prel. $137~\mathrm{fb}^{-1}$ ($\mathrm{Expected} \pm 1 \sigma_\mathrm{exp}$)"
+    inputs["CMS_Preliminary"]["label"]              = "CMS Higgsino Expected $137~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary"]["color"]              = getColor(3)
     inputs["CMS_Preliminary"]["line_style"]         = "-"
     inputs["CMS_Preliminary"]["alpha_line"]         = 1.0
     inputs["CMS_Preliminary"]["alpha_fill"]         = 0.25
     inputs["CMS_Preliminary"]["isDMvsM"]            = True
-    inputs["CMS_Preliminary"]["fillDown"]           = False
+    inputs["CMS_Preliminary"]["fillDown"]           = True
     inputs["CMS_Preliminary"]["fillLeft"]           = True
     inputs["CMS_Preliminary"]["smooth"]             = 0
     inputs["CMS_Preliminary_Up"]                    = {}
@@ -637,28 +668,29 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary_Down"]["fillLeft"]      = True
     inputs["CMS_Preliminary_Down"]["smooth"]        = 0
     inputs["CMS_Preliminary_Ext"]                   = {}
-    inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_extended.csv".format(ku_susy_dir, ku_susy_base_name)
-    inputs["CMS_Preliminary_Ext"]["label"]          = "CMS Predicted $300~\mathrm{fb}^{-1}$"
+    inputs["CMS_Preliminary_Ext"]["csv"]            = "{0}/{1}_central_v2.csv".format(ku_susy_dir, ku_susy_extend_base_name)
+    inputs["CMS_Preliminary_Ext"]["label"]          = "CMS Higgsino Predicted $300~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary_Ext"]["color"]          = getColor(7)
-    inputs["CMS_Preliminary_Ext"]["line_style"]     = ":"
+    inputs["CMS_Preliminary_Ext"]["line_style"]     = "-"
     inputs["CMS_Preliminary_Ext"]["alpha_line"]     = 1.0
-    inputs["CMS_Preliminary_Ext"]["alpha_fill"]     = 0.0
+    inputs["CMS_Preliminary_Ext"]["alpha_fill"]     = 0.25
     inputs["CMS_Preliminary_Ext"]["isDMvsM"]        = True
-    inputs["CMS_Preliminary_Ext"]["fillDown"]       = False
+    inputs["CMS_Preliminary_Ext"]["fillDown"]       = True
     inputs["CMS_Preliminary_Ext"]["fillLeft"]       = True
     inputs["CMS_Preliminary_Ext"]["smooth"]         = 0
     
     info = {}
     info["title"]               = "Higgsino Limits"
     #info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}, \tilde{\chi}_{2}^{0} \tilde{\chi}_{2}^{0}$, $m \left(\tilde{\chi}_{1}^{\pm}\right) = \left(m \left(\tilde{\chi}_{2}^{0}\right) + m \left(\tilde{\chi}_{1}^{0}\right)\right) / 2$"
-    info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}$ (Higgsino); $\tilde{\chi}_{2}^{0} \to Z^{*} \tilde{\chi}_{1}^{0}$, $\tilde{\chi}_{1}^{\pm} \to W^{*} \tilde{\chi}_{1}^{0}$"
+    #info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}$ (Higgsino); $\tilde{\chi}_{2}^{0} \to Z^{*} \tilde{\chi}_{1}^{0}$, $\tilde{\chi}_{1}^{\pm} \to W^{*} \tilde{\chi}_{1}^{0}$"
+    info["proc_label"]          = r"$p p \to \tilde{\chi}_{2}^{0} \tilde{\chi}_{1}^{\pm}$; $\tilde{\chi}_{2}^{0} \to Z^{*} \tilde{\chi}_{1}^{0}$, $\tilde{\chi}_{1}^{\pm} \to W^{*} \tilde{\chi}_{1}^{0}$"
     info["x_label"]             = r"$m \left(\tilde{\chi}_{2}^{0}\right)$ [GeV]" 
     info["y_label"]             = r"$\Delta m \left(\tilde{\chi}_{2}^{0}, \tilde{\chi}_{1}^{0}\right)$ [GeV]"
     info["proc_label_x_pos"]    = 0.00  # process label x position as fraction in range [0.0, 1.0]
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
-    info["x_lim"]               = [100.0, 600.0]
+    info["x_lim"]               = [100.0, 400.0]
     info["y_lim"]               = [3.0,   50.0]
-    info["legend_loc"]          = "upper left"
+    info["legend_loc"]          = "upper right"
     info["legend_order"]        = legend_order
     
     preparePlot(plot_dir, plot_name, input_list, inputs, info)
