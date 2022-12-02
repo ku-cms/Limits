@@ -693,7 +693,7 @@ def makePlotHiggsino():
     inputs["CMS_Preliminary_TChiWZ"]["smooth"]          = 0
     inputs["CMS_Preliminary_TChiWZ_Ext"]                = {}
     inputs["CMS_Preliminary_TChiWZ_Ext"]["csv"]         = "{0}/{1}_central.csv".format(ku_susy_dir_TChiWZ, ku_susy_base_name_TChiWZ_extended)
-    inputs["CMS_Preliminary_TChiWZ_Ext"]["label"]       = "CMS Wino Expected $300~\mathrm{fb}^{-1}$"
+    inputs["CMS_Preliminary_TChiWZ_Ext"]["label"]       = "CMS Wino Predicted $300~\mathrm{fb}^{-1}$"
     inputs["CMS_Preliminary_TChiWZ_Ext"]["color"]       = getColor(5)
     inputs["CMS_Preliminary_TChiWZ_Ext"]["line_style"]  = "-"
     inputs["CMS_Preliminary_TChiWZ_Ext"]["alpha_line"]  = 1.0
