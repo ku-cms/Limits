@@ -714,7 +714,7 @@ def makePlotHiggsino():
     info["proc_label_y_pos"]    = 1.02  # process label y position as fraction in range [0.0, 1.0]
     info["x_lim"]               = [100.0, 400.0]
     info["y_lim"]               = [3.0,   50.0]
-    info["legend_loc"]          = "upper right"
+    info["legend_loc"]          = "upper center"
     info["legend_order"]        = legend_order
     
     preparePlot(plot_dir, plot_name, input_list, inputs, info)
