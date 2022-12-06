@@ -119,10 +119,11 @@ def plot(plot_dir, plot_name, input_list, inputs, info):
     #plt.fill_between(x_lim, y_lim[0], y_lim[1], color="black", alpha=alpha_fill)
     
     # make line for slepton limit
-    coverCorner = True
-    if coverCorner:
-        line_x = [90.0, 100.0]
-        line_y = [90.0, 100.0]
+    # cover upper triangle of plot with white; region not physically allowed
+    coverUpperTriangle = True
+    if coverUpperTriangle:
+        line_x = [0.0, 10000.0]
+        line_y = [0.0, 10000.0]
         plt.fill_between(line_x, line_y, y_lim[1], color="white", linewidth=0, alpha=1.0)
     
     # get coordinates for labels
