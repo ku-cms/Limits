@@ -388,7 +388,7 @@ def makePlotTChiWZ():
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_TChiWZ_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     #inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
     inputs["CMS_2L_3L"]["label"]                    = "CMS: JHEP (2022)"
-    inputs["CMS_2L_3L"]["color"]                    = getColor(4)
+    inputs["CMS_2L_3L"]["color"]                    = getColor(7)
     inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
     inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
@@ -521,7 +521,7 @@ def makePlotT2ttC():
     inputs["CMS_2L_3L"]["csv"]                      = "{0}/CMS_2L_3L_T2ttC_Observed_Limit_DMvsM_v1p1.csv".format(data_dir)
     #inputs["CMS_2L_3L"]["label"]                    = "CMS: J. High Energ. Phys. 2022, 91 (2022)"
     inputs["CMS_2L_3L"]["label"]                    = "CMS: JHEP (2022)"
-    inputs["CMS_2L_3L"]["color"]                    = getColor(4)
+    inputs["CMS_2L_3L"]["color"]                    = getColor(7)
     inputs["CMS_2L_3L"]["line_style"]               = "-"
     inputs["CMS_2L_3L"]["alpha_line"]               = 0.0
     inputs["CMS_2L_3L"]["alpha_fill"]               = 0.5
